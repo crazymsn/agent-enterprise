@@ -179,10 +179,12 @@
     .github-link { width: 46px; height: 46px; display: inline-grid; place-items: center; border: 1px solid rgba(34,32,30,.45); border-radius: 50%; color: #000; background: rgba(255,255,255,.8); transition: transform .25s var(--ease-apple), color .25s var(--ease-apple), background .25s var(--ease-apple), border-color .25s var(--ease-apple); }
     .github-link:hover { transform: translateY(-2px); color: #fff; background: var(--text-main); border-color: var(--text-main); }
     .github-link svg { width: 24px; height: 24px; fill: currentColor; }
-    .language-switcher { display: inline-flex; align-items: center; gap: 7px; height: 42px; padding: 0 11px; border: 1px solid var(--line-strong); border-radius: 999px; background: rgba(255,255,255,.72); color: var(--text-muted); font-size: 13px; font-weight: 650; box-shadow: var(--shadow-subtle); }
-    .language-switcher span { display: grid; place-items: center; min-width: 19px; height: 19px; padding: 0 3px; border-radius: 999px; background: var(--text-main); color: #fff; font-size: 10px; font-weight: 700; }
-    .language-switcher select { appearance: none; -webkit-appearance: none; border: 0; outline: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; padding-right: 13px; background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%); background-position: calc(100% - 8px) 50%, calc(100% - 4px) 50%; background-size: 4px 4px, 4px 4px; background-repeat: no-repeat; }
-    .language-switcher select option { color: var(--text-main); background: #fff; }
+    .language-switcher { display: inline-flex; align-items: center; gap: 4px; height: 44px; padding: 4px; border: 1px solid rgba(34,32,30,.14); border-radius: 999px; background: rgba(255,255,255,.62); color: var(--text-muted); box-shadow: 0 8px 22px rgba(26,25,24,.08), inset 0 1px 0 rgba(255,255,255,.85); }
+    .language-glyph { display: grid; place-items: center; min-width: 26px; height: 26px; margin-left: 2px; border-radius: 50%; background: var(--text-main); color: #fff; font: 700 10px/1 var(--font-sans); letter-spacing: -.08em; }
+    .language-option { min-width: 44px; height: 34px; padding: 0 10px; border: 0; border-radius: 999px; background: transparent; color: var(--text-muted); font-size: 12px; font-weight: 700; letter-spacing: .01em; transition: background .25s var(--ease-apple), color .25s var(--ease-apple), box-shadow .25s var(--ease-apple); }
+    .language-option:hover { color: var(--text-main); }
+    .language-option.active { background: var(--text-main); color: #fff; box-shadow: 0 4px 10px rgba(26,25,24,.18); }
+    .language-option:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 2px; }
 
     /* === 通用 Section 设定 === */
     section { padding: 140px 0; }
@@ -344,7 +346,9 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .nav-right { gap: 10px; }
-      .language-switcher { height: 38px; padding: 0 9px; }
+      .language-switcher { height: 40px; }
+      .language-glyph { min-width: 24px; height: 24px; }
+      .language-option { min-width: 38px; height: 30px; padding: 0 8px; font-size: 11px; }
       section { padding: 80px 0; }
       h1 { font-size: 44px; }
       .category-panel { padding: 24px 20px; }
@@ -409,7 +413,11 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .7a11.3 11.3 0 0 0-3.57 22.02c.57.1.78-.25.78-.55v-2.1c-3.18.69-3.85-1.35-3.85-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.34.96.1-.74.4-1.25.73-1.54-2.54-.29-5.2-1.27-5.2-5.65 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.12 1.17a10.8 10.8 0 0 1 5.68 0c2.16-1.48 3.12-1.17 3.12-1.17.62 1.58.23 2.75.11 3.04.73.8 1.18 1.82 1.18 3.07 0 4.39-2.67 5.35-5.21 5.64.41.36.78 1.08.78 2.18v3.23c0 .3.21.65.79.54A11.3 11.3 0 0 0 12 .7Z"/></svg>
         </a>
         </div>
-        <label class="language-switcher" for="language-select"><span class="language-glyph" aria-hidden="true">文</span><select id="language-select" aria-label="选择语言"><option value="zh">中文</option><option value="en">English</option></select></label>
+        <div class="language-switcher" role="group" aria-label="选择语言">
+          <span class="language-glyph" aria-hidden="true">文</span>
+          <button class="language-option active" type="button" data-language="zh" aria-pressed="true">中文</button>
+          <button class="language-option" type="button" data-language="en" aria-pressed="false">EN</button>
+        </div>
       </div>
     </div>
   </nav>
@@ -652,7 +660,8 @@
     reveals.forEach(el => observer.observe(el));
 
     // 多语言切换：中文为默认语言，英文内容与当前视觉布局同步切换
-    const languageSelect = document.querySelector('#language-select');
+    const languageSwitcher = document.querySelector('.language-switcher');
+    const languageButtons = [...document.querySelectorAll('[data-language]')];
     const translatable = [...document.querySelectorAll('[data-i18n]')];
     const originalCopy = new Map(translatable.map((el) => [el, el.innerHTML]));
     const englishCopy = {
@@ -698,17 +707,19 @@
       translatable.forEach((el) => { el.innerHTML = isEnglish ? (englishCopy[el.dataset.i18n] || originalCopy.get(el)) : originalCopy.get(el); });
       document.documentElement.lang = isEnglish ? 'en' : 'zh-CN';
       document.title = isEnglish ? 'Agent System' : '智能体系统';
-      languageSelect.value = isEnglish ? 'en' : 'zh';
-      languageSelect.setAttribute('aria-label', isEnglish ? 'Choose language' : '选择语言');
-      languageSelect.options[0].textContent = isEnglish ? 'Chinese' : '中文';
-      languageSelect.options[1].textContent = 'English';
+      languageButtons.forEach((button) => {
+        const active = button.dataset.language === (isEnglish ? 'en' : 'zh');
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+      languageSwitcher.setAttribute('aria-label', isEnglish ? 'Choose language' : '选择语言');
       document.querySelector('.language-glyph').textContent = isEnglish ? '文A' : '文';
       try { localStorage.setItem('agent-site-language', isEnglish ? 'en' : 'zh'); } catch (error) { /* 隐私模式下忽略持久化 */ }
     };
     let savedLanguage = 'zh';
     try { savedLanguage = localStorage.getItem('agent-site-language') || 'zh'; } catch (error) { /* 隐私模式下使用中文 */ }
     applyLanguage(savedLanguage);
-    languageSelect.addEventListener('change', (event) => applyLanguage(event.target.value));
+    languageButtons.forEach((button) => button.addEventListener('click', () => applyLanguage(button.dataset.language)));
 
     // Agent 产品图：自动发现目录图片，按产品叙事排序后单图横向轮播
     const carousel = document.querySelector('.product-carousel');
