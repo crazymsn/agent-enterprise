@@ -1,0 +1,13 @@
+Dockerfile
+docker-compose.yml
+.dockerignore
+.git
+.playwright-cli
+image-viewer-backup
+*.md
+修复图片查看.ps1
+1.jpg
+2.png
+3.png
+4.png
+屏幕截图 2026-09-16 014337.png

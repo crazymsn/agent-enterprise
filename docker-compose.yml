@@ -1,0 +1,9 @@
+services:
+  official-site:
+    image: crazymsn/official-site:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    restart: unless-stopped
