@@ -194,7 +194,7 @@
     .section-head { margin-bottom: 72px; max-width: 760px; }
     .section-head-wide { max-width: none; }
     .section-head-wide .section-desc { max-width: 760px; }
-    #pain-points .section-desc, #capabilities .section-desc { max-width: none; white-space: normal; font-size: clamp(16px, 1.65vw, 20px); }
+    #pain-points .section-desc { max-width: none; white-space: normal; font-size: clamp(16px, 1.65vw, 20px); }
     #advantages .section-desc { max-width: none; width: 100%; line-height: 1.7; white-space: normal; }
     .hero-outcome { display: block; margin-top: 16px; }
     .section-label { 
@@ -266,13 +266,13 @@
     .feature-content p { font-size: 15px; color: var(--text-muted); line-height: 1.7; }
 
 
-    /* === 企业智能体痛点 / 能力中心宽版特写 === */
-    .pain-panel, .capabilities-panel { margin: 0 0 56px; padding: 56px; border-radius: var(--radius-xl); background: var(--bg-dark); color: #fff; box-shadow: 0 28px 60px -22px rgba(26,25,24,0.34); position: relative; overflow: hidden; }
-    .pain-panel::after, .capabilities-panel::after { content: ""; position: absolute; width: 620px; height: 620px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.08); right: -280px; top: -290px; box-shadow: 0 0 0 64px rgba(255,255,255,0.025); pointer-events: none; }
-    .pain-grid, .capabilities-feature-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px; align-items: stretch; position: relative; z-index: 1; }
+    /* === 企业智能体痛点宽版特写 === */
+    .pain-panel { margin: 0 0 56px; padding: 56px; border-radius: var(--radius-xl); background: var(--bg-dark); color: #fff; box-shadow: 0 28px 60px -22px rgba(26,25,24,0.34); position: relative; overflow: hidden; }
+    .pain-panel::after { content: ""; position: absolute; width: 620px; height: 620px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.08); right: -280px; top: -290px; box-shadow: 0 0 0 64px rgba(255,255,255,0.025); pointer-events: none; }
+    .pain-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px; align-items: stretch; position: relative; z-index: 1; }
     .dark-label { color: var(--accent-primary); }
-    .pain-copy h2, .capabilities-copy h2 { color: #fff; font-size: clamp(32px, 4.2vw, 58px); line-height: 1.16; margin-bottom: 20px; }
-    .pain-copy > p, .capabilities-copy > p { color: #A8A39D; font-size: 18px; line-height: 1.68; max-width: 640px; margin-bottom: 28px; }
+    .pain-copy h2 { color: #fff; font-size: clamp(32px, 4.2vw, 58px); line-height: 1.16; margin-bottom: 20px; }
+    .pain-copy > p { color: #A8A39D; font-size: 18px; line-height: 1.68; max-width: 640px; margin-bottom: 28px; }
     .pain-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
     .pain-item { display: grid; grid-template-columns: 28px 1fr; grid-template-rows: auto 1fr; column-gap: 10px; row-gap: 8px; align-items: start; min-height: 122px; padding: 17px 16px; border: 1px solid rgba(255,255,255,.1); background: linear-gradient(135deg, rgba(255,255,255,.065), rgba(255,255,255,.025)); border-radius: 14px; }
     .pain-item::before { grid-row: 1 / span 2; color: var(--accent-primary); font: 11px var(--font-mono); letter-spacing: .04em; padding-top: 3px; }
@@ -282,8 +282,8 @@
     .pain-item:nth-child(4)::before { content: "04"; }
     .pain-item b { color: #fff; font-size: 16px; font-weight: 650; white-space: nowrap; }
     .pain-item span { color: #A8A39D; font-size: 14px; line-height: 1.55; }
-    .pain-visual, .capabilities-visual { min-height: 330px; border-radius: 22px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,.12); background: #2b2927; }
-    .pain-visual::after, .capabilities-visual::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 80% 20%, rgba(211,115,80,.14), transparent 42%), linear-gradient(135deg, rgba(255,255,255,.03), rgba(34,32,30,.38)); pointer-events: none; }
+    .pain-visual { min-height: 330px; border-radius: 22px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,.12); background: #2b2927; }
+    .pain-visual::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 80% 20%, rgba(211,115,80,.14), transparent 42%), linear-gradient(135deg, rgba(255,255,255,.03), rgba(34,32,30,.38)); pointer-events: none; }
     .signal-head { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; padding: 24px 26px 18px; color: #A8A39D; font: 11px var(--font-mono); letter-spacing: .08em; border-bottom: 1px solid rgba(255,255,255,.09); }
     .signal-head b { color: var(--accent-primary); font-weight: 700; }
     .signal-stack { position: relative; z-index: 1; display: grid; gap: 10px; padding: 24px 26px 20px; }
@@ -293,7 +293,6 @@
     .signal-foot { position: absolute; z-index: 1; left: 26px; right: 26px; bottom: 22px; display: flex; justify-content: space-between; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.1); color: #79736B; font: 10px var(--font-mono); letter-spacing: .08em; }
     .signal-foot em { color: #D8D2CA; font-style: normal; }
     .pain-visual .visual-caption { display: none; }
-    .capabilities-visual { background-color: #2b2927; background-image: radial-gradient(circle at 18% 50%, rgba(211,115,80,.11), transparent 24%), radial-gradient(circle at 82% 50%, rgba(255,255,255,.06), transparent 30%), linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px); background-size: auto, auto, 28px 28px, 28px 28px; }
     .workflow-toolbar { position: absolute; z-index: 3; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 22px; border-bottom: 1px solid rgba(255,255,255,.1); color: #A8A39D; font: 11px var(--font-mono); letter-spacing: .08em; background: rgba(34,32,30,.38); }
     .workflow-actions { display: flex; align-items: center; gap: 8px; }
     .workflow-actions i { display: block; width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.25); }
@@ -307,13 +306,6 @@
     .workflow-footer { position: absolute; z-index: 2; left: 22px; right: 22px; bottom: 22px; display: flex; justify-content: space-between; align-items: center; padding-top: 13px; border-top: 1px solid rgba(255,255,255,.1); color: #79736B; font: 10px var(--font-mono); letter-spacing: .08em; }
     .workflow-footer strong { color: #D8D2CA; font-weight: 500; }
     .visual-caption { position: absolute; z-index: 2; left: 24px; bottom: 20px; font-family: var(--font-mono); color: rgba(255,255,255,.72); font-size: 11px; letter-spacing: .08em; }
-    .capabilities-visual .visual-caption { bottom: 49px; left: 22px; color: rgba(255,255,255,.5); font-size: 9px; }
-    .capabilities-panel { margin-bottom: 48px; padding-top: 60px; padding-bottom: 60px; }
-    .capabilities-feature-grid.capabilities-visual-only { display: block; }
-    .capabilities-visual-only .capabilities-visual { min-height: 420px; }
-    .capabilities-copy .section-label { margin-bottom: 18px; }
-    .capabilities-copy h2 { max-width: 680px; font-size: clamp(26px, 2.5vw, 36px); white-space: nowrap; letter-spacing: -0.045em; }
-    .capabilities-copy > p { margin-bottom: 0; }
     .adv-icon { overflow: hidden; border: 1px solid rgba(211,115,80,.28); }
     .adv-icon svg { width: 25px; height: 25px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
     .adv-icon.emoji-icon { font-size: 0; letter-spacing: 0; }
@@ -341,9 +333,8 @@
 
     @media (max-width: 1024px) {
       .category-feature-grid { grid-template-columns: 1fr; gap: 32px; }
-      .pain-grid, .capabilities-feature-grid { grid-template-columns: 1fr; gap: 32px; }
-      .capabilities-copy h2 { white-space: normal; }
-      .pain-panel, .capabilities-panel { padding: 40px; }
+      .pain-grid { grid-template-columns: 1fr; gap: 32px; }
+      .pain-panel { padding: 40px; }
 
       .category-panel { padding: 40px; }
       .advantage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -357,27 +348,15 @@
       section { padding: 80px 0; }
       h1 { font-size: 44px; }
       .category-panel { padding: 24px 20px; }
-      .pain-panel, .capabilities-panel { padding: 24px 20px; }
-      .pain-copy h2, .capabilities-copy h2 { font-size: 30px; }
-      .pain-copy > p, .capabilities-copy > p { font-size: 16px; }
+      .pain-panel { padding: 24px 20px; }
+      .pain-copy h2 { font-size: 30px; }
+      .pain-copy > p { font-size: 16px; }
       .section-head .section-label { font-size: 21px; }
-      .pain-visual, .capabilities-visual { min-height: 220px; }
-      .capabilities-visual-only .capabilities-visual { min-height: 220px; }
-      .workflow-stage { left: 18px; right: 18px; width: auto; top: 58px; bottom: 24px; transform: none; }
-      .flow-node { min-width: 68px; min-height: 48px; padding: 7px 9px; border-radius: 10px; font-size: 11px; }
-      .flow-node small { display: none; }
-      .node-context, .node-guard { display: none; }
-      .node-trigger { left: 0; top: 38%; } .node-knowledge { left: 22%; top: -4%; } .node-model { left: 22%; top: 78%; } .node-action { left: 48%; top: 38%; } .node-result { right: 0; top: 38%; }
-      .flow-line { height: 1px; }
-      .line-a, .line-f { display: none; }
-      .line-b { left: 22%; top: 48%; width: 13%; transform: rotate(-28deg); } .line-c { left: 22%; top: 52%; width: 13%; transform: rotate(28deg); } .line-d { left: 35%; top: 24%; width: 15%; transform: rotate(22deg); } .line-e { left: 35%; top: 76%; width: 15%; transform: rotate(-22deg); } .line-g { left: 62%; top: 50%; width: 13%; }
-      .workflow-toolbar { height: 44px; padding: 0 14px; font-size: 9px; }
-      .workflow-footer { display: none; }
-      .capabilities-visual .visual-caption { display: none; }
+      .pain-visual { min-height: 220px; }
       .pain-item { flex-direction: column; gap: 5px; }
       .pain-list { grid-template-columns: 1fr; }
       .pain-item { grid-template-columns: 28px 1fr; grid-template-rows: auto 1fr; gap: 8px 10px; }
-      #pain-points .section-desc, #capabilities .section-desc { white-space: normal; }
+      #pain-points .section-desc { white-space: normal; }
 
       .category-feature-grid { gap: 28px; }
       .category-logo { width: 92px; height: 90px; margin-bottom: 18px; }
@@ -561,66 +540,11 @@
       </div>
     </section>
 
-    <!-- 全能堆栈 (Capabilities) -->
-    <section id="capabilities" class="reveal">
+    <!-- 产品预览 -->
+    <section id="product-preview" class="reveal">
       <div class="container">
-        <div class="section-head section-head-wide">
-          <div class="section-label" data-i18n="cap_label">03 / 能力中心</div>
-          <h2 data-i18n="cap_title">像搭积木一样，零代码构建复杂工作流。</h2>
-          <p class="section-desc" data-i18n="cap_desc">直观的拖拽式界面与丰富节点组件，让智能体从对话走向执行，按需定制每一条业务流程。</p>
-        </div>
-        <div class="capabilities-panel">
-          <div class="capabilities-feature-grid capabilities-visual-only">
-          <div class="capabilities-visual"><div class="workflow-toolbar"><span>FLOW BUILDER / EXECUTION GRAPH</span><div class="workflow-actions"><i></i><i></i><b>RUN</b></div></div><div class="workflow-stage"><div class="flow-line line-a"></div><div class="flow-line line-b"></div><div class="flow-line line-c"></div><div class="flow-line line-d"></div><div class="flow-line line-e"></div><div class="flow-line line-f"></div><div class="flow-line line-g"></div><div class="flow-node node-trigger"><small>01</small><span data-i18n="flow_trigger">触发</span></div><div class="flow-node node-context"><small>02</small><span data-i18n="flow_context">上下文组装</span></div><div class="flow-node node-knowledge"><small>03</small><span data-i18n="flow_knowledge">知识库</span></div><div class="flow-node node-model"><small>04</small><span data-i18n="flow_model">模型推理</span></div><div class="flow-node node-action"><small>05</small><span data-i18n="flow_action">工具执行</span></div><div class="flow-node node-guard"><small>06</small><span data-i18n="flow_guard">安全校验</span></div><div class="flow-node node-result"><small>07</small><span data-i18n="flow_result">结果交付</span></div></div><div class="workflow-footer"><span>MODEL · TOOLS · KNOWLEDGE · AUDIT</span><strong>LOCAL CONTROL</strong></div><span class="visual-caption">WORKFLOW_ORCHESTRATION / READY</span></div>
-          </div>
-        </div>
-        
-        <div class="grid-2">
-          <div class="feature-row reveal">
-            <div class="feature-num" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
-            <div class="feature-content">
-              <h4 data-i18n="feature_1_title">智能化数据处理</h4>
-              <p data-i18n="feature_1_desc">灵活导入 txt、docx、csv、xlsx、pdf、md、html、pptx 等文档，智能解析 PDF 复杂结构，保留图片、表格和 LaTeX 公式，自动识别扫描文件并结构化为 Markdown，同时支持图片标注与索引。</p>
-            </div>
-          </div>
-          <div class="feature-row reveal">
-            <div class="feature-num" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13 2-8 12h6l-1 8 8-12h-6z"/></svg></div>
-            <div class="feature-content">
-              <h4 data-i18n="feature_2_title">文件处理速度狂飙</h4>
-              <p data-i18n="feature_2_desc">本地部署后文件上传、解析、响应一步到位，支持多轮上下文理解的智能问答，大文件处理稳定流畅，效率远超云端部署。</p>
-            </div>
-          </div>
-          <div class="feature-row reveal">
-            <div class="feature-num" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c2 2.2 3 4.9 3 8s-1 5.8-3 8M12 4c-2 2.2-3 4.9-3 8s1 5.8 3 8"/></svg></div>
-            <div class="feature-content">
-              <h4 data-i18n="feature_3_title">全源模型灵活对接</h4>
-              <p data-i18n="feature_3_desc">完全对齐 OpenAI 官方接口，可接入 API 分发站持续更新的全球闭源模型，也支持 Ollama 模型按需组合，模型资源选择更灵活。</p>
-            </div>
-          </div>
-          <div class="feature-row reveal">
-            <div class="feature-num" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg></div>
-            <div class="feature-content">
-              <h4 data-i18n="feature_4_title">简单灵活，像搭积木一样简单</h4>
-              <p data-i18n="feature_4_desc">系统提供丰富功能模块，通过简单拖拽就能搭建个性化 AI 应用，零代码实现复杂业务流程；无需依赖外部网络稳定性，自定义模型参数与智能体逻辑更灵活。</p>
-            </div>
-          </div>
-          <div class="feature-row reveal">
-            <div class="feature-num" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 12h5M15.5 7.5 9 11M15.5 16.5 9 13"/></svg></div>
-            <div class="feature-content">
-              <h4 data-i18n="feature_5_title">可视化工作流</h4>
-              <p data-i18n="feature_5_desc">直观的拖拽式界面与丰富功能节点，零代码搭建复杂业务流程，按需定制流程编排，让智能体真正参与执行。</p>
-            </div>
-          </div>
-          <div class="feature-row reveal">
-            <div class="feature-num" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M12 8 7 5M12 12l5-3M12 16l-5-3M12 16l5 3"/><circle cx="12" cy="4" r="2"/><circle cx="7" cy="5" r="2"/><circle cx="17" cy="9" r="2"/><circle cx="7" cy="13" r="2"/><circle cx="17" cy="19" r="2"/></svg></div>
-            <div class="feature-content">
-              <h4 data-i18n="feature_6_title">技能树与灵活编排</h4>
-              <p data-i18n="feature_6_desc">按业务需要组合技能、工具、知识库和模型参数，像搭积木一样快速构建个性化 AI 应用。</p>
-            </div>
-          </div>
-        </div>
-        <div id="screenshot-preview" class="section-head section-head-wide screenshot-head reveal">
-          <div class="section-label" data-i18n="preview_label">04 / 产品预览</div>
+                <div id="screenshot-preview" class="section-head section-head-wide screenshot-head reveal">
+          <div class="section-label" data-i18n="preview_label">03 / 产品预览</div>
           <h2 data-i18n="preview_title">Agent 产品界面，一眼看见执行能力</h2>
           <p class="section-desc" data-i18n="preview_desc">从知识库管理到可视化流程编排，直观呈现智能体系统如何把模型能力落进真实业务场景。</p>
         </div>
@@ -695,15 +619,7 @@
       adv_7_title: 'Powerful web research', adv_7_desc: 'Google Search, Google Scholar, PubMed, and Tavily deep research support market, industry, and academic insight with multi-step retrieval and sourced reports.', adv_7_cite: 'Industry and academic insight',
       adv_8_title: 'Flexible model access and dual-track resources', adv_8_desc: 'Align with the OpenAI API, connect to global closed models through API hubs, and combine Ollama models on demand for efficient capability integration.', adv_8_cite: '自由组合模型资源',
       adv_9_title: 'Cost, iteration, and security', adv_9_desc: 'Private deployment removes recurring cloud and API fees. Customize workflows, iterate quickly, and keep sensitive data stored and processed locally.', adv_9_cite: 'Long-term control · continuous upgrades',
-      cap_label: '03 / Capabilities', cap_title: 'Build complex workflows with zero code, like building blocks', cap_desc: 'An intuitive drag-and-drop canvas and rich node library move agents from conversation to execution, with every workflow tailored to your needs.',
-      flow_trigger: 'Trigger', flow_context: 'Context assembly', flow_knowledge: 'Knowledge', flow_model: 'Model reasoning', flow_action: 'Tool execution', flow_guard: 'Safety check', flow_result: 'Result delivery',
-      feature_1_title: 'Intelligent data processing', feature_1_desc: 'Import txt, docx, csv, xlsx, pdf, md, html, and pptx. Parse complex PDFs, retain images, tables, and LaTeX, recognize scans, and structure content as Markdown with image indexing.',
-      feature_2_title: 'Accelerated file processing', feature_2_desc: 'Local upload, parsing, and response happen in one step. Multi-turn Q&A remains smooth and reliable even with large files.',
-      feature_3_title: 'Flexible model connectivity', feature_3_desc: 'OpenAI-compatible APIs connect to continuously updated closed models and Ollama models, giving teams more choice.',
-      feature_4_title: 'Simple and flexible, like building blocks', feature_4_desc: 'Drag and drop modules to build tailored AI apps and complex processes with zero code, while tuning model parameters and agent logic freely.',
-      feature_5_title: 'Visual workflows', feature_5_desc: 'Compose complex processes with a visual canvas and rich nodes, then tailor orchestration so agents participate in execution.',
-      feature_6_title: 'Skill trees and flexible orchestration', feature_6_desc: 'Combine skills, tools, knowledge, and model parameters for each business need to build personalized AI apps quickly.',
-      preview_label: '04 / Product preview', preview_title: 'See execution capability at a glance', preview_desc: 'From knowledge management to visual workflow orchestration, see how the agent system brings model capabilities into real business scenarios.',
+      preview_label: '03 / Product preview', preview_title: 'See execution capability at a glance', preview_desc: 'From knowledge management to visual workflow orchestration, see how the agent system brings model capabilities into real business scenarios.',
       cta_title: 'Make agents a long-term productivity engine', cta_desc: 'DeepCloud Technology builds an enterprise agent system covering applications, knowledge, workflows, data structuring, skill trees, Open Code, Codex Harness, private deployment, and data security.', cta_button: 'Talk to an engineer about private deployment'
     };
     const applyLanguage = (lang) => {
