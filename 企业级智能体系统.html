@@ -604,40 +604,12 @@
         </div>
         <div class="product-showcase reveal">
           <div class="product-carousel" aria-label="Agent 产品界面轮播">
-            <div class="product-track">
-              <div class="product-slide"><img src="Agent 产品图/0.png" alt="DeepCloud 企业级 AI Agent 部署方案总览" /></div>
-              <div class="product-slide"><img src="Agent 产品图/11.png" alt="智能体平台登录入口" /></div>
-              <div class="product-slide"><img src="Agent 产品图/3.png" alt="智能体应用中心" /></div>
-              <div class="product-slide"><img src="Agent 产品图/1.png" alt="知识库管理" /></div>
-              <div class="product-slide"><img src="Agent 产品图/4.png" alt="可视化工作流编排" /></div>
-              <div class="product-slide"><img src="Agent 产品图/8.png" alt="技能树管理" /></div>
-              <div class="product-slide"><img src="Agent 产品图/2.png" alt="模型提供商与模型配置" /></div>
-              <div class="product-slide"><img src="Agent 产品图/9.png" alt="API 分发站" /></div>
-              <div class="product-slide"><img src="Agent 产品图/10.png" alt="模型参数编辑" /></div>
-              <div class="product-slide"><img src="Agent 产品图/12.png" alt="OpenCode 工程执行界面" /></div>
-              <div class="product-slide"><img src="Agent 产品图/5.png" alt="PPT 智能体对话终端" /></div>
-              <div class="product-slide"><img src="Agent 产品图/6.png" alt="统计分析绘图智能体终端" /></div>
-              <div class="product-slide"><img src="Agent 产品图/7.png" alt="联网搜索与深度研究应用" /></div>
-            </div>
+            <div class="product-track"></div>
             <div class="product-nav" aria-hidden="false">
               <button class="product-arrow product-prev" type="button" aria-label="上一张产品图">‹</button>
               <button class="product-arrow product-next" type="button" aria-label="下一张产品图">›</button>
             </div>
-            <div class="product-dots" role="tablist" aria-label="选择产品图">
-              <button class="product-dot active" type="button" role="tab" aria-label="第 1 张" aria-selected="true"></button>
-              <button class="product-dot" type="button" role="tab" aria-label="第 2 张" aria-selected="false"></button>
-              <button class="product-dot" type="button" role="tab" aria-label="第 3 张" aria-selected="false"></button>
-              <button class="product-dot" type="button" role="tab" aria-label="第 4 张" aria-selected="false"></button>
-              <button class="product-dot" type="button" role="tab" aria-label="第 5 张" aria-selected="false"></button>
-              <button class="product-dot" type="button" role="tab" aria-label="第 6 张" aria-selected="false"></button>
-              <button class="product-dot" type="button" role="tab" aria-label="第 7 张" aria-selected="false"></button>
-              <button class="product-dot" type="button" role="tab" aria-label="第 8 张" aria-selected="false"></button>
-              <button class="product-dot" type="button" role="tab" aria-label="第 9 张" aria-selected="false"></button>
-              <button class="product-dot" type="button" role="tab" aria-label="第 10 张" aria-selected="false"></button>
-              <button class="product-dot" type="button" role="tab" aria-label="第 11 张" aria-selected="false"></button>
-              <button class="product-dot" type="button" role="tab" aria-label="第 12 张" aria-selected="false"></button>
-              <button class="product-dot" type="button" role="tab" aria-label="第 13 张" aria-selected="false"></button>
-            </div>
+            <div class="product-dots" role="tablist" aria-label="选择产品图"></div>
           </div>
         </div>
       </div>
@@ -669,15 +641,19 @@
     
     reveals.forEach(el => observer.observe(el));
 
-    // Agent 产品图：单图横向轮播，支持手动切换与定时循环
+    // Agent 产品图：自动发现目录图片，按产品叙事排序后单图横向轮播
     const carousel = document.querySelector('.product-carousel');
     if (carousel) {
       const track = carousel.querySelector('.product-track');
-      const slides = [...carousel.querySelectorAll('.product-slide')];
-      const dots = [...carousel.querySelectorAll('.product-dot')];
+      const dotsWrap = carousel.querySelector('.product-dots');
+      const fallbackImages = ['0.png','11.png','3.png','1.png','4.png','8.png','2.png','9.png','10.png','12.png','5.png','6.png','7.png'];
+      const priority = new Map(fallbackImages.map((name, index) => [name, index]));
+      let slides = [];
+      let dots = [];
       let current = 0;
       let timer;
       const render = (index, animate = true) => {
+        if (!slides.length) return;
         current = (index + slides.length) % slides.length;
         track.style.transitionDuration = animate ? '.72s' : '0s';
         track.style.transform = `translate3d(-${current * 100}%, 0, 0)`;
@@ -691,15 +667,50 @@
         window.clearInterval(timer);
         timer = window.setInterval(() => render(current + 1), 5200);
       };
+      const mount = (images) => {
+        track.replaceChildren();
+        dotsWrap.replaceChildren();
+        slides = images.map((name) => {
+          const slide = document.createElement('div');
+          slide.className = 'product-slide';
+          const image = document.createElement('img');
+          image.src = `Agent 产品图/${encodeURIComponent(name)}`;
+          image.alt = `DeepCloud Agent 产品界面 ${name.replace(/\.[^.]+$/, '')}`;
+          slide.append(image); track.append(slide); return slide;
+        });
+        dots = images.map((name, i) => {
+          const dot = document.createElement('button');
+          dot.className = `product-dot${i === 0 ? ' active' : ''}`;
+          dot.type = 'button'; dot.role = 'tab';
+          dot.setAttribute('aria-label', `第 ${i + 1} 张产品图`);
+          dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+          dot.addEventListener('click', () => { render(i); restart(); });
+          dotsWrap.append(dot); return dot;
+        });
+        current = 0; render(0, false); restart();
+      };
+      const loadImages = async () => {
+        let images = fallbackImages;
+        try {
+          const response = await fetch('Agent 产品图/');
+          if (!response.ok) throw new Error('directory unavailable');
+          const html = await response.text();
+          const discovered = [...html.matchAll(/href=["']([^"']+\.(?:png|jpe?g|webp|gif|svg))["']/gi)]
+            .map(match => decodeURIComponent(match[1].split('/').pop()))
+            .filter((name, i, all) => name && all.indexOf(name) === i);
+          if (discovered.length) {
+            images = discovered.sort((a, b) => (priority.get(a) ?? 999) - (priority.get(b) ?? 999) || a.localeCompare(b, undefined, { numeric: true }));
+          }
+        } catch (error) { /* file:// 本地预览时使用内置清单 */ }
+        mount(images);
+      };
       carousel.querySelector('.product-prev').addEventListener('click', () => { render(current - 1); restart(); });
       carousel.querySelector('.product-next').addEventListener('click', () => { render(current + 1); restart(); });
-      dots.forEach((dot, i) => dot.addEventListener('click', () => { render(i); restart(); }));
       carousel.addEventListener('mouseenter', () => window.clearInterval(timer));
       carousel.addEventListener('mouseleave', restart);
       carousel.addEventListener('focusin', () => window.clearInterval(timer));
       carousel.addEventListener('focusout', restart);
-      render(0, false);
-      restart();
+      loadImages();
     }
   </script>
 </body>
