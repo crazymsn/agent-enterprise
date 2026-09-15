@@ -101,6 +101,7 @@
     .brand-logo-image img { width: 100%; height: 100%; object-fit: contain; object-position: center; transform: none; }
     .brand-company { display: none; }
     
+    .nav-right { display: flex; align-items: center; gap: 18px; }
     .nav-links { display: flex; gap: 28px; align-items: center; }
     .nav-links a {
       font-size: 16px;
@@ -178,13 +179,17 @@
     .github-link { width: 46px; height: 46px; display: inline-grid; place-items: center; border: 1px solid rgba(34,32,30,.45); border-radius: 50%; color: #000; background: rgba(255,255,255,.8); transition: transform .25s var(--ease-apple), color .25s var(--ease-apple), background .25s var(--ease-apple), border-color .25s var(--ease-apple); }
     .github-link:hover { transform: translateY(-2px); color: #fff; background: var(--text-main); border-color: var(--text-main); }
     .github-link svg { width: 24px; height: 24px; fill: currentColor; }
+    .language-switcher { display: inline-flex; align-items: center; gap: 7px; height: 42px; padding: 0 11px; border: 1px solid var(--line-strong); border-radius: 999px; background: rgba(255,255,255,.72); color: var(--text-muted); font-size: 13px; font-weight: 650; box-shadow: var(--shadow-subtle); }
+    .language-switcher span { display: grid; place-items: center; min-width: 19px; height: 19px; padding: 0 3px; border-radius: 999px; background: var(--text-main); color: #fff; font-size: 10px; font-weight: 700; }
+    .language-switcher select { appearance: none; -webkit-appearance: none; border: 0; outline: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; padding-right: 13px; background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%); background-position: calc(100% - 8px) 50%, calc(100% - 4px) 50%; background-size: 4px 4px, 4px 4px; background-repeat: no-repeat; }
+    .language-switcher select option { color: var(--text-main); background: #fff; }
 
     /* === 通用 Section 设定 === */
     section { padding: 140px 0; }
     .section-head { margin-bottom: 72px; max-width: 760px; }
     .section-head-wide { max-width: none; }
     .section-head-wide .section-desc { max-width: 760px; }
-    #pain-points .section-desc, #capabilities .section-desc { max-width: none; white-space: nowrap; font-size: clamp(16px, 1.65vw, 20px); }
+    #pain-points .section-desc, #capabilities .section-desc { max-width: none; white-space: normal; font-size: clamp(16px, 1.65vw, 20px); }
     #advantages .section-desc { max-width: none; width: 100%; line-height: 1.7; white-space: normal; }
     .hero-outcome { display: block; margin-top: 16px; }
     .section-label { 
@@ -338,6 +343,8 @@
     }
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .nav-right { gap: 10px; }
+      .language-switcher { height: 38px; padding: 0 9px; }
       section { padding: 80px 0; }
       h1 { font-size: 44px; }
       .category-panel { padding: 24px 20px; }
@@ -389,17 +396,20 @@
     <div class="container nav">
       <div class="brand">
         <div class="brand-logo brand-logo-image"><img src="logo-transparent.png" alt="深度云创科技 Logo" /></div>
-        深度云创科技
+        <span data-i18n="brand">深度云创科技</span>
       </div>
-      <div class="nav-links">
-        <a href="#advantages">核心优势</a>
-        <a href="#capabilities">能力中心</a>
-        <a href="#screenshot-preview">产品预览</a>
-        <a href="#contact">私有化部署</a>
-        <a href="https://my.feishu.cn/wiki/DmxwwFCISiDsg8kmF5Pc48SCn0d" target="_blank" rel="noopener" class="nav-cta">获取技术文档</a>
+      <div class="nav-right">
+        <div class="nav-links">
+        <a href="#advantages" data-i18n="nav_advantages">核心优势</a>
+        <a href="#capabilities" data-i18n="nav_capabilities">能力中心</a>
+        <a href="#screenshot-preview" data-i18n="nav_preview">产品预览</a>
+        <a href="#contact" data-i18n="nav_private">私有化部署</a>
+        <a href="https://my.feishu.cn/wiki/DmxwwFCISiDsg8kmF5Pc48SCn0d" target="_blank" rel="noopener" class="nav-cta" data-i18n="nav_docs">获取技术文档</a>
         <a href="https://github.com/crazymsn/agent-enterprise" target="_blank" rel="noopener" class="github-link" aria-label="访问 GitHub 项目仓库" title="GitHub 项目仓库">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .7a11.3 11.3 0 0 0-3.57 22.02c.57.1.78-.25.78-.55v-2.1c-3.18.69-3.85-1.35-3.85-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.34.96.1-.74.4-1.25.73-1.54-2.54-.29-5.2-1.27-5.2-5.65 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.12 1.17a10.8 10.8 0 0 1 5.68 0c2.16-1.48 3.12-1.17 3.12-1.17.62 1.58.23 2.75.11 3.04.73.8 1.18 1.82 1.18 3.07 0 4.39-2.67 5.35-5.21 5.64.41.36.78 1.08.78 2.18v3.23c0 .3.21.65.79.54A11.3 11.3 0 0 0 12 .7Z"/></svg>
         </a>
+        </div>
+        <label class="language-switcher" for="language-select"><span class="language-glyph" aria-hidden="true">文</span><select id="language-select" aria-label="选择语言"><option value="zh">中文</option><option value="en">English</option></select></label>
       </div>
     </div>
   </nav>
@@ -408,11 +418,11 @@
     <!-- Hero -->
     <section class="hero reveal">
       <div class="container">
-        <h1>让 Agent 从 <span>Demo</span><br>跃迁至真实业务世界</h1>
-        <p class="hero-p"><span class="hero-outcome">DeepCloud 助力企业快速构建可控、可扩展的 AI 业务能力</span></p>
+        <h1 data-i18n="hero_title">让 Agent 从 <span>Demo</span><br>跃迁至真实业务世界</h1>
+        <p class="hero-p"><span class="hero-outcome" data-i18n="hero_outcome">DeepCloud 助力企业快速构建可控、可扩展的 AI 业务能力</span></p>
         <div class="btn-group">
-          <a href="#advantages" class="btn btn-primary">探索智能体系统优势</a>
-          <a href="https://my.feishu.cn/wiki/DmxwwFCISiDsg8kmF5Pc48SCn0d?from=from_copylink" target="_blank" rel="noopener" class="btn btn-secondary">智能体系统技术文档</a>
+          <a href="#advantages" class="btn btn-primary" data-i18n="hero_primary">探索智能体系统优势</a>
+          <a href="https://my.feishu.cn/wiki/DmxwwFCISiDsg8kmF5Pc48SCn0d?from=from_copylink" target="_blank" rel="noopener" class="btn btn-secondary" data-i18n="hero_docs">智能体系统技术文档</a>
         </div>
       </div>
     </section>
@@ -422,21 +432,21 @@
     <section id="pain-points" class="reveal">
       <div class="container">
         <div class="section-head section-head-wide">
-          <div class="section-label">01 / 核心痛点</div>
-          <h2>从 PoC 到生产，真正难的是长期稳定执行</h2>
-          <p class="section-desc">企业需要的不只是会对话的模型，而是一套能理解业务、调用工具、守住边界并持续交付结果的系统。</p>
+          <div class="section-label" data-i18n="pain_label">01 / 核心痛点</div>
+          <h2 data-i18n="pain_title">从 PoC 到生产，真正难的是长期稳定执行</h2>
+          <p class="section-desc" data-i18n="pain_desc">企业需要的不只是会对话的模型，而是一套能理解业务、调用工具、守住边界并持续交付结果的系统。</p>
         </div>
         <div class="pain-panel">
           <div class="pain-grid">
             <div class="pain-copy">
               <div class="pain-list">
-                <div class="pain-item"><b>工程鸿沟</b><span>Demo 能跑通，规模化落地却常被稳定性、协同与维护成本卡住。</span></div>
-                <div class="pain-item"><b>知识失真</b><span>文档结构复杂、版本分散、权限不清，模型难以获得可信上下文。</span></div>
-                <div class="pain-item"><b>边界难控</b><span>工具调用涉及权限、审批、沙箱与审计，缺少统一治理就难以放心上线。</span></div>
-                <div class="pain-item"><b>结果盲盒</b><span>缺少过程追踪与评测，任务完成率、成本和风险难以持续优化。</span></div>
+                <div class="pain-item"><b data-i18n="pain_1_title">工程鸿沟</b><span data-i18n="pain_1_desc">Demo 能跑通，规模化落地却常被稳定性、协同与维护成本卡住。</span></div>
+                <div class="pain-item"><b data-i18n="pain_2_title">知识失真</b><span data-i18n="pain_2_desc">文档结构复杂、版本分散、权限不清，模型难以获得可信上下文。</span></div>
+                <div class="pain-item"><b data-i18n="pain_3_title">边界难控</b><span data-i18n="pain_3_desc">工具调用涉及权限、审批、沙箱与审计，缺少统一治理就难以放心上线。</span></div>
+                <div class="pain-item"><b data-i18n="pain_4_title">结果盲盒</b><span data-i18n="pain_4_desc">缺少过程追踪与评测，任务完成率、成本和风险难以持续优化。</span></div>
               </div>
             </div>
-            <div class="pain-visual"><div class="signal-head"><span>ENTERPRISE_AGENT / CONTROL PLANE</span><b>LIVE</b></div><div class="signal-stack"><div class="signal-row"><i></i><span>KNOWLEDGE</span><strong>VERSIONED</strong></div><div class="signal-row"><i></i><span>PERMISSIONS</span><strong>GUARDED</strong></div><div class="signal-row"><i></i><span>TOOL CALLS</span><strong>TRACEABLE</strong></div><div class="signal-row"><i></i><span>RESULTS</span><strong>ITERABLE</strong></div></div><div class="signal-foot"><span>SYSTEM READINESS</span><em>100% LOCAL</em></div><span class="visual-caption">KNOWLEDGE_LAYER / READY</span></div>
+            <div class="pain-visual"><div class="signal-head"><span>ENTERPRISE_AGENT / CONTROL PLANE</span><b>LIVE</b></div><div class="signal-stack"><div class="signal-row"><i></i><span>KNOWLEDGE</span><strong>VERSIONED</strong></div><div class="signal-row"><i></i><span>PERMISSIONS</span><strong>GUARDED</strong></div><div class="signal-row"><i></i><span>TOOL CALLS</span><strong>TRACEABLE</strong></div><div class="signal-row"><i></i><span>RESULTS</span><strong>ITERABLE</strong></div></div><div class="signal-foot"><span data-i18n="signal_readiness">SYSTEM READINESS</span><em>100% LOCAL</em></div><span class="visual-caption">KNOWLEDGE_LAYER / READY</span></div>
           </div>
         </div>
       </div>
@@ -446,21 +456,21 @@
     <section id="advantages" class="reveal">
       <div class="container">
         <div class="section-head section-head-wide">
-          <div class="section-label">02 / 核心优势</div>
-          <h2>把 AI 能力，真正装进业务流程</h2>
-          <p class="section-desc">实现企业内部流程自动化，企业外部业务标准化，智能体系统将大语言模型、知识库管理、工作流编排、工具调用、技能树加载和 Codex Harness 执行引擎统一编排，让每一次调用都更稳定、更高效、更安全。</p>
+          <div class="section-label" data-i18n="adv_label">02 / 核心优势</div>
+          <h2 data-i18n="adv_title">把 AI 能力，真正装进业务流程</h2>
+          <p class="section-desc" data-i18n="adv_desc">实现企业内部流程自动化，企业外部业务标准化，智能体系统将大语言模型、知识库管理、工作流编排、工具调用、技能树加载和 Codex Harness 执行引擎统一编排，让每一次调用都更稳定、更高效、更安全。</p>
         </div>
         
 <div class="category-panel">
           <div class="category-feature-grid">
             <div class="category-copy">
               <img class="category-logo" src="logo-transparent.png" alt="DeepCloud" />
-              <h3>智能体应用、知识库管理、可视化工作流、数据结构化、技能树、私有化部署、隐私安全</h3>
-              <p>以知识库为底座，将智能体应用、技能树与可视化工作流组合成可执行的业务系统。通过拖拽完成流程编排，支持模型、工具与权限的统一管理，复杂业务也能快速落地。</p>
+              <h3 data-i18n="category_title">智能体应用、知识库管理、可视化工作流、数据结构化、技能树、私有化部署、隐私安全</h3>
+              <p data-i18n="category_desc">以知识库为底座，将智能体应用、技能树与可视化工作流组合成可执行的业务系统。通过拖拽完成流程编排，支持模型、工具与权限的统一管理，复杂业务也能快速落地。</p>
               <div class="tag-list">
-                <span class="tag">可视化流程编排</span>
-                <span class="tag">知识库统一管理</span>
-                <span class="tag">技能树灵活扩展</span>
+                <span class="tag" data-i18n="tag_workflow">可视化流程编排</span>
+                <span class="tag" data-i18n="tag_knowledge">知识库统一管理</span>
+                <span class="tag" data-i18n="tag_skills">技能树灵活扩展</span>
               </div>
             </div>
             <div class="category-visual" aria-hidden="true">
@@ -468,72 +478,72 @@
               <div class="visual-bar long"></div>
               <div class="visual-bar medium"></div>
               <div class="visual-divider"></div>
-              <div class="visual-status">AGENT_SYSTEM: READY</div>
+              <div class="visual-status" data-i18n="visual_status">AGENT_SYSTEM: READY</div>
             </div>
           </div>
          </div>
         <div class="advantage-grid">
           <div class="adv-card reveal">
             <div class="adv-icon emoji-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/><circle cx="12" cy="12" r="3"/></svg></div>
-            <h3>内置丰富的智能体应用</h3>
-            <p>科研学术、智能绘图、统计分析、通用 AI、智能客服、业务流程自动化全覆盖，精准匹配全行业业务场景需求。</p>
-            <span class="adv-cite">全行业场景预置</span>
+            <h3 data-i18n="adv_1_title">内置丰富的智能体应用</h3>
+            <p data-i18n="adv_1_desc">科研学术、智能绘图、统计分析、通用 AI、智能客服、业务流程自动化全覆盖，精准匹配全行业业务场景需求。</p>
+            <span class="adv-cite" data-i18n="adv_1_cite">全行业场景预置</span>
           </div>
 
           <div class="adv-card reveal">
             <div class="adv-icon emoji-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h16"/><circle cx="18" cy="12" r="2"/></svg></div>
-            <h3>简单灵活，像搭积木一样简单</h3>
-            <p>丰富功能模块通过简单拖拽即可搭建个性化 AI 应用，零代码实现复杂业务流程；无需依赖外部网络稳定性，自定义模型参数与智能体逻辑更灵活。</p>
-            <span class="adv-cite">零代码流程编排</span>
+            <h3 data-i18n="adv_2_title">简单灵活，像搭积木一样简单</h3>
+            <p data-i18n="adv_2_desc">丰富功能模块通过简单拖拽即可搭建个性化 AI 应用，零代码实现复杂业务流程；无需依赖外部网络稳定性，自定义模型参数与智能体逻辑更灵活。</p>
+            <span class="adv-cite" data-i18n="adv_2_cite">零代码流程编排</span>
           </div>
 
           <div class="adv-card reveal">
             <div class="adv-icon emoji-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 14.5a7 7 0 1 1 13.6-2.7"/><path d="m13 4 2.5 3L19 4"/><path d="M12 10v5l3 2"/></svg></div>
-            <h3>智能体应用终端</h3>
-            <p>Python-Plot 是周医生的科研馆 | 深度云创科技团队自研的一款智能体应用终端系统，方便智能体直接调用 Python 执行复杂任务，覆盖科研绘图、统计分析与数据处理。</p>
-            <span class="adv-cite">深度云创科技自研</span>
+            <h3 data-i18n="adv_3_title">智能体应用终端</h3>
+            <p data-i18n="adv_3_desc">Python-Plot 是周医生的科研馆 | 深度云创科技团队自研的一款智能体应用终端系统，方便智能体直接调用 Python 执行复杂任务，覆盖科研绘图、统计分析与数据处理。</p>
+            <span class="adv-cite" data-i18n="adv_3_cite">深度云创科技自研</span>
           </div>
 
           <div class="adv-card reveal">
             <div class="adv-icon emoji-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5h8v4H8zM5 15h6v4H5zM13 15h6v4h-6z"/><path d="M12 9v3M8 12h8"/></svg></div>
-            <h3>Codex Harness 工程</h3>
-            <p>驱动 Agent 持续理解上下文、调用工具、执行任务、验证结果并迭代纠错的智能体运行框架，旨在帮助开发者利用大型语言模型更高效地阅读、理解、修改和构建代码。</p>
-            <span class="adv-cite">Codex Harness Runtime</span>
+            <h3 data-i18n="adv_4_title">Codex Harness 工程</h3>
+            <p data-i18n="adv_4_desc">驱动 Agent 持续理解上下文、调用工具、执行任务、验证结果并迭代纠错的智能体运行框架，旨在帮助开发者利用大型语言模型更高效地阅读、理解、修改和构建代码。</p>
+            <span class="adv-cite" data-i18n="adv_4_cite">Codex Harness Runtime</span>
           </div>
 
           <div class="adv-card reveal">
             <div class="adv-icon emoji-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="m8 15 2-3 2 2 3-5 3 6"/></svg></div>
-            <h3>OpenCode 高级编程自主决策</h3>
-            <p>OpenCode 是功能强大的 AI Coding Agent，帮助开发者利用大型语言模型更高效地阅读、理解、修改和构建代码。</p>
-            <span class="adv-cite">AI Coding Agent</span>
+            <h3 data-i18n="adv_5_title">OpenCode 高级编程自主决策</h3>
+            <p data-i18n="adv_5_desc">OpenCode 是功能强大的 AI Coding Agent，帮助开发者利用大型语言模型更高效地阅读、理解、修改和构建代码。</p>
+            <span class="adv-cite" data-i18n="adv_5_cite">AI Coding Agent</span>
           </div>
 
           <div class="adv-card reveal">
             <div class="adv-icon emoji-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
-            <h3>智能化数据处理与文件加速</h3>
-            <p>支持 txt、docx、csv、xlsx、pdf、md、html、pptx 等格式，解析 PDF 复杂结构并保留图片、表格和 LaTeX 公式，自动识别扫描文件、标注索引；本地上传、解析、响应一步到位，多轮问答与大文件处理更流畅。</p>
-            <span class="adv-cite">结构化知识处理</span>
+            <h3 data-i18n="adv_6_title">智能化数据处理与文件加速</h3>
+            <p data-i18n="adv_6_desc">支持 txt、docx、csv、xlsx、pdf、md、html、pptx 等格式，解析 PDF 复杂结构并保留图片、表格和 LaTeX 公式，自动识别扫描文件、标注索引；本地上传、解析、响应一步到位，多轮问答与大文件处理更流畅。</p>
+            <span class="adv-cite" data-i18n="adv_6_cite">结构化知识处理</span>
           </div>
 
           <div class="adv-card reveal">
             <div class="adv-icon emoji-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 4.5 4.5M8 10.5h5M10.5 8v5"/></svg></div>
-            <h3>超强的联网搜索功能</h3>
-            <p>谷歌搜索满足高频市场调研，谷歌学术快速定位全球期刊论文与图书，PubMed 精准检索生物医学文献；Tavily 深度研究支持行业洞察与学术洞察，自动执行多步检索并输出带来源的结构化报告。</p>
-            <span class="adv-cite">行业与学术洞察</span>
+            <h3 data-i18n="adv_7_title">超强的联网搜索功能</h3>
+            <p data-i18n="adv_7_desc">谷歌搜索满足高频市场调研，谷歌学术快速定位全球期刊论文与图书，PubMed 精准检索生物医学文献；Tavily 深度研究支持行业洞察与学术洞察，自动执行多步检索并输出带来源的结构化报告。</p>
+            <span class="adv-cite" data-i18n="adv_7_cite">行业与学术洞察</span>
           </div>
 
           <div class="adv-card reveal">
             <div class="adv-icon emoji-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="7"/></svg></div>
-            <h3>全源模型灵活对接 + 双轨资源</h3>
-            <p>完全对齐 OpenAI 官方接口，本地私有化部署可无缝接入 API 分发站的全球闭源模型，同时支持云端 Ollama 模型按需组合，实现能力分发与整合更高效。</p>
-            <span class="adv-cite">模型资源自由组合</span>
+            <h3 data-i18n="adv_8_title">全源模型灵活对接 + 双轨资源</h3>
+            <p data-i18n="adv_8_desc">完全对齐 OpenAI 官方接口，本地私有化部署可无缝接入 API 分发站的全球闭源模型，同时支持云端 Ollama 模型按需组合，实现能力分发与整合更高效。</p>
+            <span class="adv-cite" data-i18n="adv_8_cite">模型资源自由组合</span>
           </div>
 
           <div class="adv-card reveal">
             <div class="adv-icon emoji-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 14 8l5 2-5 2-2 5-2-5-5-2 5-2z"/><path d="m18 16 .8 2.2L21 19l-2.2.8L18 22l-.8-2.2L15 19l2.2-.8z"/></svg></div>
-            <h3>成本、迭代与安全</h3>
-            <p>一次性完成本地私有化部署，省去持续云端服务费与 API 流量费；支持结合业务流程深度定制、快速迭代和一键接入新功能。数据本地存储与处理，零第三方文件传输环节，敏感隐私业务更安心。</p>
-            <span class="adv-cite">长期可控 · 持续升级</span>
+            <h3 data-i18n="adv_9_title">成本、迭代与安全</h3>
+            <p data-i18n="adv_9_desc">一次性完成本地私有化部署，省去持续云端服务费与 API 流量费；支持结合业务流程深度定制、快速迭代和一键接入新功能。数据本地存储与处理，零第三方文件传输环节，敏感隐私业务更安心。</p>
+            <span class="adv-cite" data-i18n="adv_9_cite">长期可控 · 持续升级</span>
           </div>
         </div>
       </div>
@@ -543,13 +553,13 @@
     <section id="capabilities" class="reveal">
       <div class="container">
         <div class="section-head section-head-wide">
-          <div class="section-label">03 / 能力中心</div>
-          <h2>像搭积木一样，零代码构建复杂工作流。</h2>
-          <p class="section-desc">直观的拖拽式界面与丰富节点组件，让智能体从对话走向执行，按需定制每一条业务流程。</p>
+          <div class="section-label" data-i18n="cap_label">03 / 能力中心</div>
+          <h2 data-i18n="cap_title">像搭积木一样，零代码构建复杂工作流。</h2>
+          <p class="section-desc" data-i18n="cap_desc">直观的拖拽式界面与丰富节点组件，让智能体从对话走向执行，按需定制每一条业务流程。</p>
         </div>
         <div class="capabilities-panel">
           <div class="capabilities-feature-grid capabilities-visual-only">
-            <div class="capabilities-visual"><div class="workflow-toolbar"><span>FLOW BUILDER / EXECUTION GRAPH</span><div class="workflow-actions"><i></i><i></i><b>RUN</b></div></div><div class="workflow-stage"><div class="flow-line line-a"></div><div class="flow-line line-b"></div><div class="flow-line line-c"></div><div class="flow-line line-d"></div><div class="flow-line line-e"></div><div class="flow-line line-f"></div><div class="flow-line line-g"></div><div class="flow-node node-trigger"><small>01</small><span>触发</span></div><div class="flow-node node-context"><small>02</small><span>上下文组装</span></div><div class="flow-node node-knowledge"><small>03</small><span>知识库</span></div><div class="flow-node node-model"><small>04</small><span>模型推理</span></div><div class="flow-node node-action"><small>05</small><span>工具执行</span></div><div class="flow-node node-guard"><small>06</small><span>安全校验</span></div><div class="flow-node node-result"><small>07</small><span>结果交付</span></div></div><div class="workflow-footer"><span>MODEL · TOOLS · KNOWLEDGE · AUDIT</span><strong>LOCAL CONTROL</strong></div><span class="visual-caption">WORKFLOW_ORCHESTRATION / READY</span></div>
+          <div class="capabilities-visual"><div class="workflow-toolbar"><span>FLOW BUILDER / EXECUTION GRAPH</span><div class="workflow-actions"><i></i><i></i><b>RUN</b></div></div><div class="workflow-stage"><div class="flow-line line-a"></div><div class="flow-line line-b"></div><div class="flow-line line-c"></div><div class="flow-line line-d"></div><div class="flow-line line-e"></div><div class="flow-line line-f"></div><div class="flow-line line-g"></div><div class="flow-node node-trigger"><small>01</small><span data-i18n="flow_trigger">触发</span></div><div class="flow-node node-context"><small>02</small><span data-i18n="flow_context">上下文组装</span></div><div class="flow-node node-knowledge"><small>03</small><span data-i18n="flow_knowledge">知识库</span></div><div class="flow-node node-model"><small>04</small><span data-i18n="flow_model">模型推理</span></div><div class="flow-node node-action"><small>05</small><span data-i18n="flow_action">工具执行</span></div><div class="flow-node node-guard"><small>06</small><span data-i18n="flow_guard">安全校验</span></div><div class="flow-node node-result"><small>07</small><span data-i18n="flow_result">结果交付</span></div></div><div class="workflow-footer"><span>MODEL · TOOLS · KNOWLEDGE · AUDIT</span><strong>LOCAL CONTROL</strong></div><span class="visual-caption">WORKFLOW_ORCHESTRATION / READY</span></div>
           </div>
         </div>
         
@@ -557,50 +567,50 @@
           <div class="feature-row reveal">
             <div class="feature-num" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
             <div class="feature-content">
-              <h4>智能化数据处理</h4>
-              <p>灵活导入 txt、docx、csv、xlsx、pdf、md、html、pptx 等文档，智能解析 PDF 复杂结构，保留图片、表格和 LaTeX 公式，自动识别扫描文件并结构化为 Markdown，同时支持图片标注与索引。</p>
+              <h4 data-i18n="feature_1_title">智能化数据处理</h4>
+              <p data-i18n="feature_1_desc">灵活导入 txt、docx、csv、xlsx、pdf、md、html、pptx 等文档，智能解析 PDF 复杂结构，保留图片、表格和 LaTeX 公式，自动识别扫描文件并结构化为 Markdown，同时支持图片标注与索引。</p>
             </div>
           </div>
           <div class="feature-row reveal">
             <div class="feature-num" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13 2-8 12h6l-1 8 8-12h-6z"/></svg></div>
             <div class="feature-content">
-              <h4>文件处理速度狂飙</h4>
-              <p>本地部署后文件上传、解析、响应一步到位，支持多轮上下文理解的智能问答，大文件处理稳定流畅，效率远超云端部署。</p>
+              <h4 data-i18n="feature_2_title">文件处理速度狂飙</h4>
+              <p data-i18n="feature_2_desc">本地部署后文件上传、解析、响应一步到位，支持多轮上下文理解的智能问答，大文件处理稳定流畅，效率远超云端部署。</p>
             </div>
           </div>
           <div class="feature-row reveal">
             <div class="feature-num" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c2 2.2 3 4.9 3 8s-1 5.8-3 8M12 4c-2 2.2-3 4.9-3 8s1 5.8 3 8"/></svg></div>
             <div class="feature-content">
-              <h4>全源模型灵活对接</h4>
-              <p>完全对齐 OpenAI 官方接口，可接入 API 分发站持续更新的全球闭源模型，也支持 Ollama 模型按需组合，模型资源选择更灵活。</p>
+              <h4 data-i18n="feature_3_title">全源模型灵活对接</h4>
+              <p data-i18n="feature_3_desc">完全对齐 OpenAI 官方接口，可接入 API 分发站持续更新的全球闭源模型，也支持 Ollama 模型按需组合，模型资源选择更灵活。</p>
             </div>
           </div>
           <div class="feature-row reveal">
             <div class="feature-num" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg></div>
             <div class="feature-content">
-              <h4>简单灵活，像搭积木一样简单</h4>
-              <p>系统提供丰富功能模块，通过简单拖拽就能搭建个性化 AI 应用，零代码实现复杂业务流程；无需依赖外部网络稳定性，自定义模型参数与智能体逻辑更灵活。</p>
+              <h4 data-i18n="feature_4_title">简单灵活，像搭积木一样简单</h4>
+              <p data-i18n="feature_4_desc">系统提供丰富功能模块，通过简单拖拽就能搭建个性化 AI 应用，零代码实现复杂业务流程；无需依赖外部网络稳定性，自定义模型参数与智能体逻辑更灵活。</p>
             </div>
           </div>
           <div class="feature-row reveal">
             <div class="feature-num" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 12h5M15.5 7.5 9 11M15.5 16.5 9 13"/></svg></div>
             <div class="feature-content">
-              <h4>可视化工作流</h4>
-              <p>直观的拖拽式界面与丰富功能节点，零代码搭建复杂业务流程，按需定制流程编排，让智能体真正参与执行。</p>
+              <h4 data-i18n="feature_5_title">可视化工作流</h4>
+              <p data-i18n="feature_5_desc">直观的拖拽式界面与丰富功能节点，零代码搭建复杂业务流程，按需定制流程编排，让智能体真正参与执行。</p>
             </div>
           </div>
           <div class="feature-row reveal">
             <div class="feature-num" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M12 8 7 5M12 12l5-3M12 16l-5-3M12 16l5 3"/><circle cx="12" cy="4" r="2"/><circle cx="7" cy="5" r="2"/><circle cx="17" cy="9" r="2"/><circle cx="7" cy="13" r="2"/><circle cx="17" cy="19" r="2"/></svg></div>
             <div class="feature-content">
-              <h4>技能树与灵活编排</h4>
-              <p>按业务需要组合技能、工具、知识库和模型参数，像搭积木一样快速构建个性化 AI 应用。</p>
+              <h4 data-i18n="feature_6_title">技能树与灵活编排</h4>
+              <p data-i18n="feature_6_desc">按业务需要组合技能、工具、知识库和模型参数，像搭积木一样快速构建个性化 AI 应用。</p>
             </div>
           </div>
         </div>
         <div id="screenshot-preview" class="section-head section-head-wide screenshot-head reveal">
-          <div class="section-label">04 / 产品预览</div>
-          <h2>Agent 产品界面，一眼看见执行能力</h2>
-          <p class="section-desc">从知识库管理到可视化流程编排，直观呈现智能体系统如何把模型能力落进真实业务场景。</p>
+          <div class="section-label" data-i18n="preview_label">04 / 产品预览</div>
+          <h2 data-i18n="preview_title">Agent 产品界面，一眼看见执行能力</h2>
+          <p class="section-desc" data-i18n="preview_desc">从知识库管理到可视化流程编排，直观呈现智能体系统如何把模型能力落进真实业务场景。</p>
         </div>
         <div class="product-showcase reveal">
           <div class="product-carousel" aria-label="Agent 产品界面轮播">
@@ -619,9 +629,9 @@
     <section id="contact" class="reveal">
       <div class="container">
         <div class="cta">
-          <h2>让智能体成为企业的长期生产力</h2>
-          <p>深度云创科技自研的企业级智能体系统，覆盖智能体应用、知识库管理、可视化工作流、数据结构化、技能树、Open Code 和 Codex Harness 执行引擎、支持私有化部署保障企业数据隐私与安全</p>
-          <a href="https://my.feishu.cn/docx/Hy6rdYt3FoNAovxR4cKcCtI6n8f" target="_blank" rel="noopener" class="btn btn-secondary" style="border-color:transparent; padding: 0 40px;">联系工程师探讨私有化部署方案</a>
+          <h2 data-i18n="cta_title">让智能体成为企业的长期生产力</h2>
+          <p data-i18n="cta_desc">深度云创科技自研的企业级智能体系统，覆盖智能体应用、知识库管理、可视化工作流、数据结构化、技能树、Open Code 和 Codex Harness 执行引擎、支持私有化部署保障企业数据隐私与安全</p>
+          <a href="https://my.feishu.cn/docx/Hy6rdYt3FoNAovxR4cKcCtI6n8f" target="_blank" rel="noopener" class="btn btn-secondary" style="border-color:transparent; padding: 0 40px;" data-i18n="cta_button">联系工程师探讨私有化部署方案</a>
         </div>
       </div>
     </section>
@@ -640,6 +650,65 @@
     }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
     
     reveals.forEach(el => observer.observe(el));
+
+    // 多语言切换：中文为默认语言，英文内容与当前视觉布局同步切换
+    const languageSelect = document.querySelector('#language-select');
+    const translatable = [...document.querySelectorAll('[data-i18n]')];
+    const originalCopy = new Map(translatable.map((el) => [el, el.innerHTML]));
+    const englishCopy = {
+      brand: 'DeepCloud',
+      nav_advantages: 'Core advantages', nav_capabilities: 'Capabilities', nav_preview: 'Product preview', nav_private: 'Private deployment', nav_docs: 'Technical docs',
+      hero_title: 'Move Agent from <span>Demo</span><br>to the real business world',
+      hero_outcome: 'DeepCloud helps enterprises build controllable, extensible AI capabilities faster',
+      hero_primary: 'Explore core advantages', hero_docs: 'Agent system docs',
+      pain_label: '01 / Core challenges', pain_title: 'From PoC to production, lasting execution is the real challenge',
+      pain_desc: 'Enterprise teams need more than a conversational model: they need a system that understands the business, calls tools, enforces boundaries, and delivers results continuously.',
+      pain_1_title: 'Engineering gap', pain_1_desc: 'A demo may work, yet scale is held back by reliability, collaboration, and maintenance costs.',
+      pain_2_title: 'Knowledge drift', pain_2_desc: 'Complex structures, scattered versions, and unclear permissions make trusted context hard to obtain.',
+      pain_3_title: 'Unclear boundaries', pain_3_desc: 'Tool calls involve permissions, approvals, sandboxes, and audits. Without unified governance, production is risky.',
+      pain_4_title: 'Result black box', pain_4_desc: 'Without traceable processes and evaluation, completion, cost, and risk are hard to improve continuously.',
+      signal_readiness: 'SYSTEM READINESS',
+      adv_label: '02 / Core advantages', adv_title: 'Put AI capabilities into real business workflows',
+      adv_desc: 'Automate internal processes and standardize external operations. The agent system orchestrates LLMs, knowledge, workflows, tools, skills, and the Codex Harness runtime so every call is stable, efficient, and secure.',
+      category_title: 'Agent apps, knowledge management, visual workflows, data structuring, skill trees, private deployment, and privacy security',
+      category_desc: 'Use knowledge as the foundation and combine agent apps, skill trees, and visual workflows into executable business systems. Drag and drop to orchestrate processes with unified model, tool, and permission management.',
+      tag_workflow: 'Visual workflow orchestration', tag_knowledge: 'Unified knowledge management', tag_skills: 'Extensible skill trees', visual_status: 'AGENT_SYSTEM: READY',
+      adv_1_title: 'Rich agent applications', adv_1_desc: 'Research, intelligent drawing, statistical analysis, general AI, customer service, and process automation cover diverse industry scenarios.', adv_1_cite: 'Prebuilt for every industry',
+      adv_2_title: 'Simple and flexible, like building blocks', adv_2_desc: 'Drag and drop modules to build tailored AI apps and complex processes with zero code. Tune model parameters and agent logic without relying on external network stability.', adv_2_cite: 'No-code orchestration',
+      adv_3_title: 'Agent application terminal', adv_3_desc: 'Python-Plot, the research workspace by Dr. Zhou, is developed by DeepCloud Technology. Agents can call Python directly for research plotting, statistics, and data processing.', adv_3_cite: 'Built by DeepCloud Technology',
+      adv_4_title: 'Codex Harness engineering', adv_4_desc: 'An agent runtime that understands context, calls tools, executes tasks, verifies results, and self-corrects to help developers read, modify, and build code with LLMs.', adv_4_cite: 'Codex Harness Runtime',
+      adv_5_title: 'OpenCode autonomous coding', adv_5_desc: 'OpenCode is a powerful AI Coding Agent that helps developers read, understand, modify, and build code more efficiently with LLMs.', adv_5_cite: 'AI Coding Agent',
+      adv_6_title: 'Intelligent data processing and file acceleration', adv_6_desc: 'Process txt, docx, csv, xlsx, pdf, md, html, and pptx. Preserve PDF images, tables, and LaTeX, recognize scans, and structure indexes for smooth local Q&A and large-file handling.', adv_6_cite: 'Structured knowledge processing',
+      adv_7_title: 'Powerful web research', adv_7_desc: 'Google Search, Google Scholar, PubMed, and Tavily deep research support market, industry, and academic insight with multi-step retrieval and sourced reports.', adv_7_cite: 'Industry and academic insight',
+      adv_8_title: 'Flexible model access and dual-track resources', adv_8_desc: 'Align with the OpenAI API, connect to global closed models through API hubs, and combine Ollama models on demand for efficient capability integration.', adv_8_cite: '自由组合模型资源',
+      adv_9_title: 'Cost, iteration, and security', adv_9_desc: 'Private deployment removes recurring cloud and API fees. Customize workflows, iterate quickly, and keep sensitive data stored and processed locally.', adv_9_cite: 'Long-term control · continuous upgrades',
+      cap_label: '03 / Capabilities', cap_title: 'Build complex workflows with zero code, like building blocks', cap_desc: 'An intuitive drag-and-drop canvas and rich node library move agents from conversation to execution, with every workflow tailored to your needs.',
+      flow_trigger: 'Trigger', flow_context: 'Context assembly', flow_knowledge: 'Knowledge', flow_model: 'Model reasoning', flow_action: 'Tool execution', flow_guard: 'Safety check', flow_result: 'Result delivery',
+      feature_1_title: 'Intelligent data processing', feature_1_desc: 'Import txt, docx, csv, xlsx, pdf, md, html, and pptx. Parse complex PDFs, retain images, tables, and LaTeX, recognize scans, and structure content as Markdown with image indexing.',
+      feature_2_title: 'Accelerated file processing', feature_2_desc: 'Local upload, parsing, and response happen in one step. Multi-turn Q&A remains smooth and reliable even with large files.',
+      feature_3_title: 'Flexible model connectivity', feature_3_desc: 'OpenAI-compatible APIs connect to continuously updated closed models and Ollama models, giving teams more choice.',
+      feature_4_title: 'Simple and flexible, like building blocks', feature_4_desc: 'Drag and drop modules to build tailored AI apps and complex processes with zero code, while tuning model parameters and agent logic freely.',
+      feature_5_title: 'Visual workflows', feature_5_desc: 'Compose complex processes with a visual canvas and rich nodes, then tailor orchestration so agents participate in execution.',
+      feature_6_title: 'Skill trees and flexible orchestration', feature_6_desc: 'Combine skills, tools, knowledge, and model parameters for each business need to build personalized AI apps quickly.',
+      preview_label: '04 / Product preview', preview_title: 'See execution capability at a glance', preview_desc: 'From knowledge management to visual workflow orchestration, see how the agent system brings model capabilities into real business scenarios.',
+      cta_title: 'Make agents a long-term productivity engine', cta_desc: 'DeepCloud Technology builds an enterprise agent system covering applications, knowledge, workflows, data structuring, skill trees, Open Code, Codex Harness, private deployment, and data security.', cta_button: 'Talk to an engineer about private deployment'
+    };
+    const applyLanguage = (lang) => {
+      const isEnglish = lang === 'en';
+      translatable.forEach((el) => { el.innerHTML = isEnglish ? (englishCopy[el.dataset.i18n] || originalCopy.get(el)) : originalCopy.get(el); });
+      document.documentElement.lang = isEnglish ? 'en' : 'zh-CN';
+      document.title = isEnglish ? 'Agent System' : '智能体系统';
+      languageSelect.value = isEnglish ? 'en' : 'zh';
+      languageSelect.setAttribute('aria-label', isEnglish ? 'Choose language' : '选择语言');
+      languageSelect.options[0].textContent = isEnglish ? 'Chinese' : '中文';
+      languageSelect.options[1].textContent = 'English';
+      document.querySelector('.language-glyph').textContent = isEnglish ? '文A' : '文';
+      try { localStorage.setItem('agent-site-language', isEnglish ? 'en' : 'zh'); } catch (error) { /* 隐私模式下忽略持久化 */ }
+    };
+    let savedLanguage = 'zh';
+    try { savedLanguage = localStorage.getItem('agent-site-language') || 'zh'; } catch (error) { /* 隐私模式下使用中文 */ }
+    applyLanguage(savedLanguage);
+    languageSelect.addEventListener('change', (event) => applyLanguage(event.target.value));
 
     // Agent 产品图：自动发现目录图片，按产品叙事排序后单图横向轮播
     const carousel = document.querySelector('.product-carousel');
