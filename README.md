@@ -32,8 +32,8 @@ docker compose -p official-site down
 ### 使用 Docker Hub 镜像
 
 ```bash
-docker pull crazymsn/official-site:latest
-docker run -d --name official-site -p 8080:80 --restart unless-stopped crazymsn/official-site:latest
+docker pull crazymsn/agent-enterprise:latest
+docker run -d --name official-site -p 8080:80 --restart unless-stopped crazymsn/agent-enterprise:latest
 ```
 
 ## 产品图管理
@@ -67,7 +67,7 @@ nginx.conf              # 静态站点与图库目录索引配置
 
 ## 镜像信息
 
-- 镜像：`crazymsn/official-site:latest`
+- 镜像：`crazymsn/agent-enterprise:latest`
 - 默认容器端口：`80`
 - Compose 主机端口：`8080`
 
@@ -75,4 +75,3 @@ nginx.conf              # 静态站点与图库目录索引配置
 
 - GitHub：<https://github.com/crazymsn/agent-enterprise>
 - 技术文档：<https://my.feishu.cn/wiki/DmxwwFCISiDsg8kmF5Pc48SCn0d>
-

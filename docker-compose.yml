@@ -1,6 +1,6 @@
 services:
   official-site:
-    image: crazymsn/official-site:latest
+    image: crazymsn/agent-enterprise:latest
     build:
       context: .
       dockerfile: Dockerfile
