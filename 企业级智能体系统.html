@@ -175,6 +175,9 @@
     .btn-primary:hover { background: var(--accent-primary); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(211, 115, 80, 0.3); }
     .btn-secondary { background: var(--bg-surface); border: 1px solid var(--line-strong); color: var(--text-main); box-shadow: var(--shadow-subtle); }
     .btn-secondary:hover { border-color: var(--text-main); transform: translateY(-2px); }
+    .github-link { width: 42px; height: 42px; display: inline-grid; place-items: center; border: 1px solid var(--line-strong); border-radius: 50%; color: var(--text-main); background: rgba(255,255,255,.72); transition: transform .25s var(--ease-apple), color .25s var(--ease-apple), background .25s var(--ease-apple), border-color .25s var(--ease-apple); }
+    .github-link:hover { transform: translateY(-2px); color: #fff; background: var(--text-main); border-color: var(--text-main); }
+    .github-link svg { width: 20px; height: 20px; fill: currentColor; }
 
     /* === 通用 Section 设定 === */
     section { padding: 140px 0; }
@@ -394,6 +397,9 @@
         <a href="#screenshot-preview">产品预览</a>
         <a href="#contact">私有化部署</a>
         <a href="https://my.feishu.cn/wiki/DmxwwFCISiDsg8kmF5Pc48SCn0d" target="_blank" rel="noopener" class="nav-cta">获取技术文档</a>
+        <a href="https://github.com/crazymsn/agent-enterprise" target="_blank" rel="noopener" class="github-link" aria-label="访问 GitHub 项目仓库" title="GitHub 项目仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .7a11.3 11.3 0 0 0-3.57 22.02c.57.1.78-.25.78-.55v-2.1c-3.18.69-3.85-1.35-3.85-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.34.96.1-.74.4-1.25.73-1.54-2.54-.29-5.2-1.27-5.2-5.65 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.12 1.17a10.8 10.8 0 0 1 5.68 0c2.16-1.48 3.12-1.17 3.12-1.17.62 1.58.23 2.75.11 3.04.73.8 1.18 1.82 1.18 3.07 0 4.39-2.67 5.35-5.21 5.64.41.36.78 1.08.78 2.18v3.23c0 .3.21.65.79.54A11.3 11.3 0 0 0 12 .7Z"/></svg>
+        </a>
       </div>
     </div>
   </nav>
