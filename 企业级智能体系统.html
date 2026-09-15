@@ -103,6 +103,7 @@
     
     .nav-right { display: flex; align-items: center; gap: 18px; }
     .nav-links { display: flex; gap: 28px; align-items: center; }
+    .mobile-menu-toggle { display: none; }
     .nav-links a {
       font-size: 16px;
       font-weight: 650;
@@ -343,32 +344,48 @@
       .grid-2 { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
+      .container { width: min(100% - 32px, var(--max-width)); }
+      .nav { height: 72px; }
       .nav-links { display: none; }
-      .nav-right { gap: 10px; }
+      .nav-right { gap: 8px; }
+      .mobile-menu-toggle { display: inline-grid; place-items: center; width: 40px; height: 40px; border: 1px solid var(--line-strong); border-radius: 50%; background: rgba(255,255,255,.72); color: var(--text-main); }
+      .mobile-menu-toggle svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; }
+      .nav-wrap.menu-open .nav-links { position: absolute; top: 80px; left: 16px; right: 16px; display: flex; flex-direction: column; align-items: stretch; gap: 4px; padding: 10px; border: 1px solid rgba(34,32,30,.12); border-radius: 20px; background: rgba(250,249,245,.94); box-shadow: 0 22px 44px rgba(26,25,24,.16); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+      .nav-wrap.menu-open .nav-links a { width: 100%; padding: 12px 14px; border-radius: 12px; font-size: 15px; }
+      .nav-wrap.menu-open .nav-links a:hover { background: rgba(211,115,80,.1); }
+      .nav-wrap.menu-open .nav-links .nav-cta { text-align: center; margin-top: 4px; }
       .language-switcher { height: 40px; }
       .language-option { min-width: 38px; height: 30px; padding: 0 8px; font-size: 11px; }
-      section { padding: 80px 0; }
+      section { padding: 88px 0; }
       .brand-logo { width: 42px; height: 42px; }
       .brand { gap: 10px; font-size: 20px; }
-      h1 { font-size: 44px; }
-      .category-panel { padding: 24px 20px; }
-      .pain-panel { padding: 24px 20px; }
+      .hero { padding: 148px 0 82px; }
+      h1 { font-size: clamp(38px, 11vw, 52px); line-height: 1.1; letter-spacing: -0.045em; margin-bottom: 20px; }
+      html.lang-en h1 { font-size: clamp(36px, 10.5vw, 50px); line-height: 1.08; }
+      .hero-p { font-size: 17px; line-height: 1.6; margin-bottom: 32px; }
+      .btn-group { width: 100%; gap: 10px; }
+      .btn-group .btn { width: min(100%, 340px); height: 52px; padding: 0 22px; font-size: 15px; }
+      .category-panel { padding: 26px 20px; margin-bottom: 36px; }
+      .pain-panel { padding: 20px 16px; margin-bottom: 36px; }
+      .section-head { margin-bottom: 38px; }
+      .section-head .section-label { font-size: 20px; letter-spacing: .08em; margin-bottom: 13px; }
+      h2 { font-size: clamp(32px, 9vw, 42px); line-height: 1.15; margin-bottom: 16px; }
+      .section-desc { font-size: 17px; line-height: 1.68; }
       .pain-copy h2 { font-size: 30px; }
       .pain-copy > p { font-size: 16px; }
-      .section-head .section-label { font-size: 21px; }
       .pain-visual { min-height: 220px; }
-      .pain-item { flex-direction: column; gap: 5px; }
+      .pain-item { min-height: 0; padding: 15px 14px; flex-direction: column; gap: 5px; }
       .pain-list { grid-template-columns: 1fr; }
       .pain-item { grid-template-columns: 28px 1fr; grid-template-rows: auto 1fr; gap: 8px 10px; }
       #pain-points .section-desc { white-space: normal; }
 
-      .category-feature-grid { gap: 28px; }
-      .category-logo { width: 92px; height: 90px; margin-bottom: 18px; }
-      .category-copy h3 { font-size: 30px; }
+      .category-feature-grid { gap: 24px; }
+      .category-logo { width: 78px; height: 76px; margin-bottom: 16px; }
+      .category-copy h3, html.lang-en .category-copy h3 { font-size: clamp(27px, 8vw, 34px); line-height: 1.24; }
       .category-copy p { font-size: 16px; }
-      .category-visual { min-height: 220px; padding: 28px; }
-      .product-showcase { margin-top: 36px; padding: 8px; border-radius: 22px; }
-      .screenshot-head { margin-top: 72px; margin-bottom: 28px; }
+      .category-visual { min-height: 180px; padding: 24px; }
+      .product-showcase { margin-top: 30px; padding: 6px; border-radius: 20px; }
+      .screenshot-head { margin-top: 70px; margin-bottom: 26px; }
       .screenshot-head h2 { font-size: 30px; }
       .screenshot-head .section-desc { font-size: 16px; }
       .product-carousel { border-radius: 16px; }
@@ -377,7 +394,20 @@
       .product-arrow { width: 34px; height: 34px; font-size: 18px; }
       .product-dots { bottom: 10px; gap: 6px; padding: 6px 9px; }
       .advantage-grid { grid-template-columns: 1fr; }
-      .cta { padding: 80px 32px; }
+      .cta { padding: 64px 22px; margin-bottom: 40px; border-radius: 24px; }
+      .cta .section-label { font-size: 18px; }
+      .cta h2 { font-size: clamp(34px, 9vw, 46px); line-height: 1.14; margin-bottom: 18px; }
+      .cta p { font-size: 17px; line-height: 1.68; margin-bottom: 30px; }
+      .cta .btn { width: 100%; padding: 0 18px !important; }
+    }
+    @media (max-width: 390px) {
+      .brand { font-size: 18px; }
+      .brand-logo { width: 38px; height: 38px; }
+      .github-link { width: 40px; height: 40px; }
+      .github-link svg { width: 21px; height: 21px; }
+      .language-option { min-width: 35px; padding: 0 7px; }
+      .hero { padding-top: 132px; }
+      .btn-group .btn { max-width: none; }
     }
   </style>
 </head>
@@ -391,13 +421,16 @@
         <span data-i18n="brand">深度云创科技</span>
       </div>
       <div class="nav-right">
-        <div class="nav-links">
+        <div class="nav-links" id="mobile-nav">
         <a href="#pain-points" data-i18n="nav_pain">核心痛点</a>
         <a href="#advantages" data-i18n="nav_advantages">核心优势</a>
         <a href="#product-preview" data-i18n="nav_preview">产品预览</a>
         <a href="#contact" data-i18n="nav_private">私有化部署</a>
         <a href="https://my.feishu.cn/wiki/DmxwwFCISiDsg8kmF5Pc48SCn0d" target="_blank" rel="noopener" class="nav-cta" data-i18n="nav_docs">获取技术文档</a>
         </div>
+        <button class="mobile-menu-toggle" type="button" aria-controls="mobile-nav" aria-expanded="false" aria-label="打开导航菜单">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
         <div class="language-switcher" role="group" aria-label="选择语言">
           <button class="language-option active" type="button" data-language="zh" aria-pressed="true">中文</button>
           <button class="language-option" type="button" data-language="en" aria-pressed="false">EN</button>
@@ -645,6 +678,21 @@
     try { savedLanguage = localStorage.getItem('agent-site-language') || 'zh'; } catch (error) { /* 隐私模式下使用中文 */ }
     applyLanguage(savedLanguage);
     languageButtons.forEach((button) => button.addEventListener('click', () => applyLanguage(button.dataset.language)));
+
+    // 移动端导航菜单
+    const navWrap = document.querySelector('.nav-wrap');
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const closeMobileMenu = () => {
+      navWrap.classList.remove('menu-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', document.documentElement.lang === 'en' ? 'Open navigation menu' : '打开导航菜单');
+    };
+    menuToggle.addEventListener('click', () => {
+      const open = navWrap.classList.toggle('menu-open');
+      menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menuToggle.setAttribute('aria-label', open ? (document.documentElement.lang === 'en' ? 'Close navigation menu' : '关闭导航菜单') : (document.documentElement.lang === 'en' ? 'Open navigation menu' : '打开导航菜单'));
+    });
+    document.querySelectorAll('.nav-links a').forEach((link) => link.addEventListener('click', closeMobileMenu));
 
     // Agent 产品图：自动发现目录图片，按产品叙事排序后单图横向轮播
     const carousel = document.querySelector('.product-carousel');
