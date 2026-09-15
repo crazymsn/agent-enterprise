@@ -326,6 +326,7 @@
     }
     .cta h2 { font-size: clamp(40px, 6vw, 64px); letter-spacing: -0.03em; margin: 0 auto 24px; position: relative; z-index: 1; }
     .cta p { font-size: 20px; color: rgba(255,255,255,0.7); max-width: 680px; margin: 0 auto 48px; position: relative; z-index: 1; }
+    .cta .section-label { position: relative; z-index: 1; margin-bottom: 22px; color: var(--accent-primary); }
 
     /* 滚动揭示动画 */
     .reveal { opacity: 0; transform: translateY(40px); transition: 0.8s var(--ease-apple); }
@@ -565,6 +566,7 @@
     <section id="contact" class="reveal">
       <div class="container">
         <div class="cta">
+          <div class="section-label" data-i18n="deploy_label">04 / 私有化部署</div>
           <h2 data-i18n="cta_title">让智能体成为企业的长期生产力</h2>
           <p data-i18n="cta_desc">深度云创科技自研的企业级智能体系统，覆盖智能体应用、知识库管理、可视化工作流、数据结构化、技能树、Open Code 和 Codex Harness 执行引擎、支持私有化部署保障企业数据隐私与安全</p>
           <a href="https://my.feishu.cn/docx/Hy6rdYt3FoNAovxR4cKcCtI6n8f" target="_blank" rel="noopener" class="btn btn-secondary" style="border-color:transparent; padding: 0 40px;" data-i18n="cta_button">联系工程师探讨私有化部署方案</a>
@@ -620,7 +622,7 @@
       adv_8_title: 'Flexible model access and dual-track resources', adv_8_desc: 'Align with the OpenAI API, connect to global closed models through API hubs, and combine Ollama models on demand for efficient capability integration.', adv_8_cite: '自由组合模型资源',
       adv_9_title: 'Cost, iteration, and security', adv_9_desc: 'Private deployment removes recurring cloud and API fees. Customize workflows, iterate quickly, and keep sensitive data stored and processed locally.', adv_9_cite: 'Long-term control · continuous upgrades',
       preview_label: '03 / Product preview', preview_title: 'See execution capability at a glance', preview_desc: 'From knowledge management to visual workflow orchestration, see how the agent system brings model capabilities into real business scenarios.',
-      cta_title: 'Make agents a long-term productivity engine', cta_desc: 'DeepCloud Technology builds an enterprise agent system covering applications, knowledge, workflows, data structuring, skill trees, Open Code, Codex Harness, private deployment, and data security.', cta_button: 'Talk to an engineer about private deployment'
+      deploy_label: '04 / Private deployment', cta_title: 'Make agents a long-term productivity engine', cta_desc: 'DeepCloud Technology builds an enterprise agent system covering applications, knowledge, workflows, data structuring, skill trees, Open Code, Codex Harness, private deployment, and data security.', cta_button: 'Talk to an engineer about private deployment'
     };
     const applyLanguage = (lang) => {
       const isEnglish = lang === 'en';
