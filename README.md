@@ -60,7 +60,7 @@ OpenCode 是一款功能极其强大的 AI 编程辅助工具（AI Coding Agent�
 
 ## 智能体技术文档
 
-[## ](https://my.feishu.cn/wiki/DmxwwFCISiDsg8kmF5Pc48SCn0d)
+[## ] https://my.feishu.cn/wiki/DmxwwFCISiDsg8kmF5Pc48SCn0d
 
 ## 联系工程师
 
