@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#F4F2EC" />
   <link rel="icon" href="1.jpg" type="image/jpeg" />
   <title>智能体系统</title>
@@ -129,7 +129,7 @@
     }
     .hero::before {
       content: ""; position: absolute;
-      width: 800px; height: 800px;
+      width: min(800px, 100%); height: 800px;
       background: radial-gradient(circle, rgba(211,115,80,0.08) 0%, transparent 60%);
       top: -200px; left: 50%; transform: translateX(-50%);
       pointer-events: none; z-index: -1;
@@ -336,7 +336,7 @@
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 1024px) {
-      .category-feature-grid { grid-template-columns: 1fr; gap: 32px; }
+      .category-feature-grid, html.lang-en .category-feature-grid { grid-template-columns: 1fr; gap: 32px; }
       .pain-grid { grid-template-columns: 1fr; gap: 32px; }
       .pain-panel { padding: 40px; }
 
@@ -344,24 +344,30 @@
       .advantage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .grid-2 { grid-template-columns: 1fr; }
     }
-    @media (max-width: 768px) {
-      .container { width: min(100% - 32px, var(--max-width)); }
-      .nav { height: 72px; }
+    @media (max-width: 1100px) {
+      .nav { gap: 12px; }
       .nav-links { display: none; }
       .nav-right { gap: 8px; }
-      .mobile-menu-toggle { display: inline-grid; place-items: center; width: 40px; height: 40px; border: 1px solid var(--line-strong); border-radius: 50%; background: rgba(255,255,255,.72); color: var(--text-main); }
+      .mobile-menu-toggle { display: inline-grid; place-items: center; flex-shrink: 0; width: 44px; height: 44px; border: 1px solid var(--line-strong); border-radius: 50%; background: rgba(255,255,255,.72); color: var(--text-main); }
       .mobile-menu-toggle svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; }
-      .nav-wrap.menu-open .nav-links { position: absolute; top: 80px; left: 16px; right: 16px; display: flex; flex-direction: column; align-items: stretch; gap: 4px; padding: 10px; border: 1px solid rgba(34,32,30,.12); border-radius: 20px; background: rgba(250,249,245,.94); box-shadow: 0 22px 44px rgba(26,25,24,.16); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+      .nav-wrap.menu-open .nav-links { position: absolute; top: calc(100% + 8px); left: 16px; right: 16px; display: flex; flex-direction: column; align-items: stretch; gap: 4px; padding: 10px; border: 1px solid rgba(34,32,30,.12); border-radius: 20px; background: rgba(250,249,245,.94); box-shadow: 0 22px 44px rgba(26,25,24,.16); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); max-height: calc(100dvh - 112px); overflow-y: auto; }
       .nav-wrap.menu-open .nav-links a { width: 100%; padding: 12px 14px; border-radius: 12px; font-size: 15px; }
       .nav-wrap.menu-open .nav-links a:hover { background: rgba(211,115,80,.1); }
       .nav-wrap.menu-open .nav-links .nav-cta { text-align: center; margin-top: 4px; }
-      .language-switcher { height: 40px; }
-      .language-option { min-width: 38px; height: 30px; padding: 0 8px; font-size: 11px; }
-      section { padding: 88px 0; }
+      .language-switcher { height: 44px; padding: 0; gap: 0; flex-shrink: 0; }
+      .language-option { min-width: 44px; height: 42px; padding: 0 7px; font-size: 12px; }
+      .github-link { width: 44px; height: 44px; flex-shrink: 0; }
+    }
+    @media (max-width: 768px) {
+      .container { width: min(100% - 32px, var(--max-width)); }
+      .nav { height: 72px; gap: 4px; }
+      .nav-right { gap: 4px; flex-shrink: 0; }
+      section { padding: 68px 0; }
       .brand-logo { width: 36px; height: 36px; }
       .brand { gap: 10px; font-size: 20px; }
       .hero { padding: 148px 0 82px; }
-      h1 { font-size: clamp(38px, 11vw, 52px); line-height: 1.1; letter-spacing: -0.045em; margin-bottom: 20px; }
+      h1 { font-size: clamp(34px, 9.8vw, 48px); line-height: 1.18; letter-spacing: -0.035em; margin-bottom: 20px; }
+      h1 br { display: none; }
       html.lang-en h1 { font-size: clamp(36px, 10.5vw, 50px); line-height: 1.08; }
       .hero-p { font-size: 17px; line-height: 1.6; margin-bottom: 32px; }
       .btn-group { width: 100%; gap: 10px; }
@@ -369,12 +375,19 @@
       .category-panel { padding: 26px 20px; margin-bottom: 36px; }
       .pain-panel { padding: 20px 16px; margin-bottom: 36px; }
       .section-head { margin-bottom: 38px; }
-      .section-head .section-label { font-size: 20px; letter-spacing: .08em; margin-bottom: 13px; }
-      h2 { font-size: clamp(32px, 9vw, 42px); line-height: 1.15; margin-bottom: 16px; }
-      .section-desc { font-size: 17px; line-height: 1.68; }
-      .pain-copy h2 { font-size: 30px; }
-      .pain-copy > p { font-size: 16px; }
-      .pain-visual { min-height: 220px; }
+      .section-head .section-label { font-size: clamp(22px, 6.1vw, 27px); letter-spacing: .08em; line-height: 1.28; margin-bottom: 15px; text-wrap: pretty; }
+      h2 { font-size: clamp(34px, 9.6vw, 46px); line-height: 1.16; margin-bottom: 18px; text-wrap: pretty; }
+      .section-head h2, .cta h2 { text-wrap: balance; }
+      #pain-points h2 span { display: inline-block; }
+      .section-desc { max-width: 100%; font-size: 17px; line-height: 1.76; letter-spacing: 0; text-wrap: pretty; overflow-wrap: anywhere; }
+      .pain-copy h2 { font-size: clamp(32px, 8.8vw, 42px); line-height: 1.18; }
+      .pain-copy > p { font-size: 16px; line-height: 1.76; }
+      .pain-visual { min-height: 0; display: flex; flex-direction: column; }
+      .signal-head { padding: 18px 14px; gap: 12px; font-size: 10px; letter-spacing: .03em; flex-wrap: wrap; }
+      .signal-stack { padding: 18px 14px; }
+      .signal-row { grid-template-columns: 7px minmax(0, 1fr) auto; gap: 8px; padding: 12px 10px; font-size: 11px; letter-spacing: 0; }
+      .signal-row strong { font-size: 9px; }
+      .signal-foot { position: relative; inset: auto; margin: 0 14px 18px; gap: 10px; flex-wrap: wrap; letter-spacing: .03em; }
       .pain-item { min-height: 0; padding: 15px 14px; flex-direction: column; gap: 5px; }
       .pain-list { grid-template-columns: 1fr; }
       .pain-item { grid-template-columns: 28px 1fr; grid-template-rows: auto 1fr; gap: 8px 10px; }
@@ -382,33 +395,49 @@
 
       .category-feature-grid { gap: 24px; }
       .category-logo { width: 78px; height: 76px; margin-bottom: 16px; }
-      .category-copy h3, html.lang-en .category-copy h3 { font-size: clamp(27px, 8vw, 34px); line-height: 1.24; }
-      .category-copy p { font-size: 16px; }
+      .category-copy h3 { font-size: clamp(27px, 8vw, 34px); line-height: 1.24; }
+      html.lang-en .category-copy h3 { font-size: clamp(24px, 6.7vw, 30px); line-height: 1.28; letter-spacing: -.025em; }
+      .category-copy p { font-size: 16px; line-height: 1.72; }
       .category-visual { min-height: 180px; padding: 24px; }
-      .product-showcase { margin-top: 30px; padding: 6px; border-radius: 20px; }
-      .screenshot-head { margin-top: 70px; margin-bottom: 26px; }
+      .product-showcase { margin-top: 30px; padding: 0; border-radius: 20px; background: transparent; border: 0; box-shadow: none; }
+      .screenshot-head { margin-top: 0; margin-bottom: 26px; }
       .deployment-head { margin-bottom: 26px; }
-      .screenshot-head h2 { font-size: 30px; }
-      .screenshot-head .section-desc { font-size: 16px; }
-      .product-carousel { border-radius: 16px; }
-      .product-slide img { aspect-ratio: 1.45 / 1; object-fit: contain; }
-      .product-nav { padding: 0 10px; }
-      .product-arrow { width: 34px; height: 34px; font-size: 18px; }
-      .product-dots { bottom: 10px; gap: 6px; padding: 6px 9px; }
-      .advantage-grid { grid-template-columns: 1fr; }
+      .screenshot-head h2 { font-size: clamp(32px, 8.8vw, 42px); line-height: 1.18; }
+      .screenshot-head .section-desc { max-width: 100%; font-size: 16px; line-height: 1.76; }
+      .product-carousel { border-radius: 16px; background: transparent; padding-bottom: 56px; }
+      .product-track { touch-action: pan-y pinch-zoom; }
+      .product-slide img { width: 100%; height: auto; aspect-ratio: auto; object-fit: contain; object-position: center; border-radius: 16px; }
+      .product-nav { inset: auto 0 0; height: 44px; padding: 0; }
+      .product-arrow { width: 44px; height: 44px; font-size: 22px; color: var(--text-main); border-color: var(--line-strong); background: var(--bg-surface); }
+      .product-dots { bottom: 0; height: 44px; max-width: calc(100% - 100px); gap: 4px; padding: 0 6px; align-items: center; overflow-x: auto; scrollbar-width: none; background: transparent; border: 0; backdrop-filter: none; }
+      .product-dot { flex-shrink: 0; width: 5px; height: 5px; background: rgba(34,32,30,.26); }
+      .product-dot.active { width: 16px; }
+      .advantage-grid { grid-template-columns: 1fr; gap: 16px; }
+      .advantage-grid .adv-card { min-height: 0; }
+      .adv-card { padding: 26px 22px 22px; border-radius: 20px; }
+      .adv-icon { width: 52px; height: 52px; margin-bottom: 20px; }
+      .adv-card h3 { font-size: 21px; line-height: 1.38; margin-bottom: 10px; }
+      .adv-card p { font-size: 16px; line-height: 1.76; margin-bottom: 16px; }
+      .adv-cite { font-size: 11px; }
       .cta { padding: 64px 22px; margin-bottom: 40px; border-radius: 24px; }
       .cta h2 { font-size: clamp(34px, 9vw, 46px); line-height: 1.14; margin-bottom: 18px; }
       .cta p { font-size: 17px; line-height: 1.68; margin-bottom: 30px; }
-      .cta .btn { width: 100%; padding: 0 18px !important; }
+      .cta .btn { width: 100%; min-height: 56px; height: auto; padding: 14px 18px !important; font-size: 15px; line-height: 1.5; text-wrap: pretty; }
     }
     @media (max-width: 390px) {
-      .brand { font-size: 18px; }
-      .brand-logo { width: 34px; height: 34px; }
-      .github-link { width: 40px; height: 40px; }
+      .brand { font-size: 17px; gap: 6px; }
+      .brand-logo { width: 32px; height: 32px; }
       .github-link svg { width: 21px; height: 21px; }
-      .language-option { min-width: 35px; padding: 0 7px; }
       .hero { padding-top: 132px; }
       .btn-group .btn { max-width: none; }
+    }
+    @media (max-width: 360px) {
+      .brand { font-size: 16px; gap: 4px; }
+      .brand-logo { width: 28px; height: 28px; }
+      .brand span { max-width: 3em; line-height: 1.25; }
+      html.lang-en .brand { font-size: 14px; }
+      html.lang-en .brand span { max-width: none; }
+      .signal-row { font-size: 10px; }
     }
   </style>
 </head>
@@ -462,7 +491,7 @@
       <div class="container">
         <div class="section-head section-head-wide">
           <div class="section-label" data-i18n="pain_label">01 / 核心痛点</div>
-          <h2 data-i18n="pain_title">从 PoC 到生产，真正难的是长期稳定执行</h2>
+          <h2 data-i18n="pain_title"><span>从 PoC 到生产，</span>真正难的是长期稳定执行</h2>
           <p class="section-desc" data-i18n="pain_desc">企业需要的不只是会对话的模型，而是一套能理解业务、调用工具、守住边界并持续交付结果的系统。</p>
         </div>
         <div class="pain-panel">
@@ -624,7 +653,7 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+    }, { threshold: 0, rootMargin: "0px 0px -50px 0px" });
     
     reveals.forEach(el => observer.observe(el));
 
@@ -762,6 +791,21 @@
       };
       carousel.querySelector('.product-prev').addEventListener('click', () => { render(current - 1); restart(); });
       carousel.querySelector('.product-next').addEventListener('click', () => { render(current + 1); restart(); });
+      let swipeStart = null;
+      track.addEventListener('pointerdown', (event) => {
+        if (event.pointerType === 'mouse') return;
+        swipeStart = { x: event.clientX, y: event.clientY };
+        window.clearInterval(timer);
+      });
+      track.addEventListener('pointerup', (event) => {
+        if (!swipeStart) return;
+        const dx = event.clientX - swipeStart.x;
+        const dy = event.clientY - swipeStart.y;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) render(current + (dx < 0 ? 1 : -1));
+        swipeStart = null;
+        restart();
+      });
+      track.addEventListener('pointercancel', () => { swipeStart = null; restart(); });
       carousel.addEventListener('mouseenter', () => window.clearInterval(timer));
       carousel.addEventListener('mouseleave', restart);
       carousel.addEventListener('focusin', () => window.clearInterval(timer));
