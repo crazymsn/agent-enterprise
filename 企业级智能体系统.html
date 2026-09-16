@@ -207,6 +207,8 @@
     h2 { font-size: clamp(36px, 5vw, 64px); font-weight: 750; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 24px; }
     .section-desc { font-size: 20px; color: var(--text-muted); line-height: 1.6; letter-spacing: -0.01em; }
     .screenshot-head { margin-top: 104px; margin-bottom: 38px; }
+    .deployment-head { margin-bottom: 38px; }
+    .deployment-head .section-label { margin-bottom: 0; }
     .screenshot-head h2 { font-size: clamp(32px, 4vw, 52px); margin-bottom: 16px; }
     .screenshot-head .section-desc { max-width: 860px; font-size: 18px; }
 
@@ -328,7 +330,6 @@
     }
     .cta h2 { font-size: clamp(40px, 6vw, 64px); letter-spacing: -0.03em; margin: 0 auto 24px; position: relative; z-index: 1; }
     .cta p { font-size: 20px; color: rgba(255,255,255,0.7); max-width: 680px; margin: 0 auto 48px; position: relative; z-index: 1; }
-    .cta .section-label { position: relative; z-index: 1; margin-bottom: 22px; color: var(--accent-primary); }
 
     /* 滚动揭示动画 */
     .reveal { opacity: 0; transform: translateY(40px); transition: 0.8s var(--ease-apple); }
@@ -386,6 +387,7 @@
       .category-visual { min-height: 180px; padding: 24px; }
       .product-showcase { margin-top: 30px; padding: 6px; border-radius: 20px; }
       .screenshot-head { margin-top: 70px; margin-bottom: 26px; }
+      .deployment-head { margin-bottom: 26px; }
       .screenshot-head h2 { font-size: 30px; }
       .screenshot-head .section-desc { font-size: 16px; }
       .product-carousel { border-radius: 16px; }
@@ -395,7 +397,6 @@
       .product-dots { bottom: 10px; gap: 6px; padding: 6px 9px; }
       .advantage-grid { grid-template-columns: 1fr; }
       .cta { padding: 64px 22px; margin-bottom: 40px; border-radius: 24px; }
-      .cta .section-label { font-size: 18px; }
       .cta h2 { font-size: clamp(34px, 9vw, 46px); line-height: 1.14; margin-bottom: 18px; }
       .cta p { font-size: 17px; line-height: 1.68; margin-bottom: 30px; }
       .cta .btn { width: 100%; padding: 0 18px !important; }
@@ -601,8 +602,10 @@
     <!-- CTA -->
     <section id="contact" class="reveal">
       <div class="container">
-        <div class="cta">
+        <div class="section-head section-head-wide deployment-head">
           <div class="section-label" data-i18n="deploy_label">04 / 私有化部署</div>
+        </div>
+        <div class="cta">
           <h2 data-i18n="cta_title">让智能体成为企业的长期生产力</h2>
           <p data-i18n="cta_desc">深度云创科技自研的企业级智能体系统，覆盖智能体应用、知识库管理、可视化工作流、数据结构化、技能树、Open Code 和 Codex Harness 执行引擎、支持私有化部署保障企业数据隐私与安全</p>
           <a href="https://my.feishu.cn/docx/Hy6rdYt3FoNAovxR4cKcCtI6n8f" target="_blank" rel="noopener" class="btn btn-secondary" style="border-color:transparent; padding: 0 40px;" data-i18n="cta_button">联系工程师探讨私有化部署方案</a>
